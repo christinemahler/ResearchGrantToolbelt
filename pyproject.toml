@@ -1,0 +1,40 @@
+[project]
+name = "04-producton-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langchain-core==0.3.31",
+    "langchain==0.3.15",
+    "langchain-community==0.3.15",
+    "langchain-openai==0.3.1",
+    "langchain-qdrant==0.2.0",
+    "qdrant-client==1.13.2",
+    "tiktoken>=0.8.0",
+    "pymupdf==1.25.2",
+    "langgraph>=0.2.67",
+    "langsmith>=0.3.1",
+    "openai>=1.60.0",
+    "cohere>=5.13.11",
+    "lxml>=5.3.0",
+    "beautifulsoup4>=4.12.2",
+    "bs4>=0.0.1",
+    "ipykernel>=6.29.5",
+    "jq>=1.8.0",
+    "grandalf>=0.8",
+    "pandas>=2.2.3",
+    "xmltojson>=2.0.3",
+    "html-to-json>=2.0.0",
+    "ragas>=0.2.13",
+    "tqdm>=4.67.1",
+    "rapidfuzz>=3.12.1",
+    "chainlit>=2.2.1",
+    "langchain-text-splitters>=0.3.5",
+    "typing-extensions>=4.12.2",
+    "langchain-huggingface==0.1.2",
+    "python-dotenv>=1.0.1",
+    "websockets>=15.0",
+    "requests>=2.32.3",
+    "arxiv>=2.1.3",
+]

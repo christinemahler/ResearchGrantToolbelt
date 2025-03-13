@@ -1,0 +1,515 @@
+{
+    "meta": {
+        "search_id": null,
+        "total": 7670782,
+        "offset": 0,
+        "limit": 100,
+        "sort_field": "coreproject",
+        "sort_order": "desc",
+        "sorted_by_relevance": false,
+        "properties": {}
+    },
+    "results": [
+        {
+            "coreproject": "ZIKDE000726",
+            "pmid": 26657764,
+            "applid": 10491636
+        },
+        {
+            "coreproject": "ZIKBC010857",
+            "pmid": 38410462,
+            "applid": 11188865
+        },
+        {
+            "coreproject": "ZIKBC010857",
+            "pmid": 38418824,
+            "applid": 11188865
+        },
+        {
+            "coreproject": "ZIKBC010857",
+            "pmid": 38912579,
+            "applid": 11188865
+        },
+        {
+            "coreproject": "ZIKBC010857",
+            "pmid": 35155868,
+            "applid": 11188865
+        },
+        {
+            "coreproject": "ZIKBC010857",
+            "pmid": 38205877,
+            "applid": 11188865
+        },
+        {
+            "coreproject": "ZIKBC010857",
+            "pmid": 38020927,
+            "applid": 11188865
+        },
+        {
+            "coreproject": "ZIKBC010857",
+            "pmid": 38624210,
+            "applid": 11188865
+        },
+        {
+            "coreproject": "ZIKBC010857",
+            "pmid": 38466627,
+            "applid": 11188865
+        },
+        {
+            "coreproject": "ZIKBC010857",
+            "pmid": 37654973,
+            "applid": 11188865
+        },
+        {
+            "coreproject": "ZIJTR000340",
+            "pmid": 36253455,
+            "applid": 10916083
+        },
+        {
+            "coreproject": "ZIJTR000340",
+            "pmid": 31481516,
+            "applid": 10916083
+        },
+        {
+            "coreproject": "ZIJMD000010",
+            "pmid": 24621545,
+            "applid": 11193148
+        },
+        {
+            "coreproject": "ZIJMD000010",
+            "pmid": 39605244,
+            "applid": 11193148
+        },
+        {
+            "coreproject": "ZIJMD000010",
+            "pmid": 38151903,
+            "applid": 11193148
+        },
+        {
+            "coreproject": "ZIJMD000009",
+            "pmid": 35682264,
+            "applid": 11193147
+        },
+        {
+            "coreproject": "ZIJMD000009",
+            "pmid": 34299759,
+            "applid": 11193147
+        },
+        {
+            "coreproject": "ZIJDK043322",
+            "pmid": 21127195,
+            "applid": 8554234
+        },
+        {
+            "coreproject": "ZIJDK043322",
+            "pmid": 21454225,
+            "applid": 8554234
+        },
+        {
+            "coreproject": "ZIJCP010204",
+            "pmid": 30251077,
+            "applid": 11179953
+        },
+        {
+            "coreproject": "ZIJBC011133",
+            "pmid": 24604827,
+            "applid": 11188861
+        },
+        {
+            "coreproject": "ZIJBC011133",
+            "pmid": 27075242,
+            "applid": 11188861
+        },
+        {
+            "coreproject": "ZIINS009428",
+            "pmid": 35902552,
+            "applid": 10476937
+        },
+        {
+            "coreproject": "ZIINS009416",
+            "pmid": 31562178,
+            "applid": 10265904
+        },
+        {
+            "coreproject": "ZIIMD000004",
+            "pmid": 39928851,
+            "applid": 11193145
+        },
+        {
+            "coreproject": "ZIIEB000067",
+            "pmid": 26417847,
+            "applid": 7970426
+        },
+        {
+            "coreproject": "ZIIDC000095",
+            "pmid": 37390046,
+            "applid": 10916888
+        },
+        {
+            "coreproject": "ZIIDC000093",
+            "pmid": 33824189,
+            "applid": 10923718
+        },
+        {
+            "coreproject": "ZIHNS002820",
+            "pmid": 18957224,
+            "applid": 7970412
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 20725694,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 21062823,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 20442145,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 23160416,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 23193265,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 23193275,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 23193287,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 23973273,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 23703206,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 23920785,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 24234437,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 24259432,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 24475099,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 24523987,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 24304891,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 24551389,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 19022398,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 19025685,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 19381300,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 19394440,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 19468303,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 18998868,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 18998883,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 22561944,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 22708584,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 19965774,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 19435531,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 19741685,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 27497798,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 30371825,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 30395293,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 29636898,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 28986824,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 30833764,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 36424512,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 36662619,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 36677521,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 37933855,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 37956405,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 37431591,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 38273363,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 37842337,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 38085797,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 27195309,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 35227770,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 35229639,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 35230423,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 34850941,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 34876495,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 35042802,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 33767203,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 34045712,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 34070911,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 33947809,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 34781105,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 35357919,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 35444317,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 34992730,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 33622857,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 32847630,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 26207759,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 26170238,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 25414356,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 25428358,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 25168772,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 33289898,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 33322070,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 33239395,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 32308977,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 32162068,
+            "applid": 11188858
+        },
+        {
+            "coreproject": "ZIHLM200888",
+            "pmid": 32559231,
+            "applid": 11188858
+        }
+    ],
+    "facet_results": []
+}

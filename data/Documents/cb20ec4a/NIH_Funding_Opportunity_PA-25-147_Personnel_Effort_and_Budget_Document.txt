@@ -1,0 +1,30 @@
+### Personnel Effort and Budget Calculation for NIH Funding Opportunity PA-25-147
+
+Given the complexity specified in the study analysis, appropriate personnel and their minimum efforts are calculated based on key and other essential roles required over the duration of the project. Below is the effort allocation and person-month calculation laid out in table format.
+
+#### Project Duration Assumed: 5 years
+
+| Role                                     | Year 1 (%) | Year 2 (%) | Year 3 (%) | Year 4 (%) | Year 5 (%) | Year 1 (Person Months) | Year 2 (Person Months) | Year 3 (Person Months) | Year 4 (Person Months) | Year 5 (Person Months) |
+|------------------------------------------|------------|------------|------------|------------|------------|------------------------|------------------------|------------------------|------------------------|------------------------|
+| DCC Principal Investigator               | 15         | 15         | 15         | 15         | 15         | 1.8                    | 1.8                    | 1.8                    | 1.8                    | 1.8                    |
+| Clinical Data Manager                    | 100        | 100        | 80         | 60         | 60         | 12.0                   | 12.0                   | 9.6                    | 7.2                    | 7.2                    |
+| Statistician                             | 75         | 75         | 60         | 50         | 50         | 9.0                    | 9.0                    | 7.2                    | 6.0                    | 6.0                    |
+| Clinical Project Manager                 | 75         | 75         | 75         | 75         | 75         | 9.0                    | 9.0                    | 9.0                    | 9.0                    | 9.0                    |
+| Business Project Manager                 | 25         | 15         | 10         | 0          | 0          | 3.0                    | 1.8                    | 1.2                    | 0                      | 0                      |
+| DCC Co-Principal Investigator (optional) | 15         | 15         | 15         | 15         | 15         | 1.8                    | 1.8                    | 1.8                    | 1.8                    | 1.8                    |
+| IT Project Manager (optional)            | 20         | 10         | 5          | 0          | 0          | 2.4                    | 1.2                    | 0.6                    | 0                      | 0                      |
+| IT Operations                            | 10         | 10         | 10         | 10         | 10         | 1.2                    | 1.2                    | 1.2                    | 1.2                    | 1.2                    |
+| Operations Leader                        | 10         | 10         | 10         | 10         | 10         | 1.2                    | 1.2                    | 1.2                    | 1.2                    | 1.2                    |
+| Administrative Program Coordinator       | 10         | 10         | 10         | 10         | 10         | 1.2                    | 1.2                    | 1.2                    | 1.2                    | 1.2                    |
+| Finance                                  | 5          | 5          | 5          | 5          | 5          | 0.6                    | 0.6                    | 0.6                    | 0.6                    | 0.6                    |
+| Biometrics Management                    | 5          | 5          | 5          | 5          | 5          | 0.6                    | 0.6                    | 0.6                    | 0.6                    | 0.6                    |
+| Clinical Project Manager Management      | 5          | 5          | 5          | 5          | 5          | 0.6                    | 0.6                    | 0.6                    | 0.6                    | 0.6                    |
+
+*Percentages are minimum required unless otherwise adjusted for project needs.
+
+#### Assumptions:
+- 12 months per year.
+- Effort% reduction in "Clinical Data Manager" and "Statistician" roles indicates the potential shift from intensive set-up and data acquisition stages to maintenance and final analysis stages.
+- Personnel optional roles included based on project needs assessment regarding IT and additional support. Optional roles can adjust as per evolving requirements through the project lifecycle.
+
+This detailed effort allocation per role ensures comprehensive management, monitoring, and operational execution throughout the project lifecycle under NIH guidelines for high-complexity clinical trials.
