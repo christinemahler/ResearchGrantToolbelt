@@ -7,6 +7,8 @@
 
 The Research Grant Toolbelt leverages various AI patterns - prompting, Retrieval Augmented Generation (RAG), agents, tool-calling - to help with common research grant proposal tasks. It helps with finding funding opportunities, producing application materials, and summarizing ongoing or completed projects. 
 
+[Link to Presentation Slides](https://www.canva.com/design/DAGhoBwj0NI/0EAwY1mNZzq4WqlTZ7U9HQ/view?utm_content=DAGhoBwj0NI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h96b31b7c49)
+
 ## Phase I
 
 The first phase of this project is to develop a process to build out a budget for specific funding opportunities using a combination of the funding information, NIH budget guidelines, common assumptions, and historical data. It starts with assessing the study complexity and then proceeds on to the budget creation process, iterating through different steps to produce the final budget. Additional details are provided below.
