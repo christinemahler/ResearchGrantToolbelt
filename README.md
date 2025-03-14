@@ -1,7 +1,7 @@
 # Research Grant Toolbelt
 *Note: The following graph is just a preliminary representation of the tool while it's still actively in development.*
 
-![image](Images/Research%20Grant%20Toolbelt.png)
+![image](Images/Research%20Grant%20Toolkit%20NEW.png)
 
 ## Overview
 

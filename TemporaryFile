@@ -1,0 +1,19 @@
+import chainlit as cl
+
+@cl.on_message
+async def process_message(message: str):
+    """Processes user input and saves the output to a text file."""
+    
+    # 🔹 Generate content dynamically
+    response_text = f"Processed message: {message}"
+
+    # 🔹 Define file path
+    file_path = "output.txt"
+
+    # 🔹 Write content to file
+    with open(file_path, "w", encoding="utf-8") as file:
+        file.write(response_text)
+
+    # 🔹 Provide a download link in Chainlit
+    file_obj = cl.File(path=file_path, name="output.txt", display_name="Download Processed File")
+    await cl.Message(content="Here is your processed file:", files=[file_obj]).send()

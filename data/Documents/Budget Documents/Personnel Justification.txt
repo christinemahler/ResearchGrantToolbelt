@@ -1,0 +1,35 @@
+### NIH Personnel Budget Justifications for Funding Opportunity PAR-25-283: Innovative Mental Health Services Research Not Involving Clinical Trials
+
+1. **DCC Principal Investigator**
+   - **Role on Project:** Primary investigator and project lead.
+   - **Person-Months:** 1.8 per year, totaling 9 person-months over five years.
+   - **Justification:** The PI will oversee all aspects of the project, ensuring that the project goals align with the funding opportunity objectives. They will manage the administrative tasks and coordinate between various team members to maintain the expected study pace. This role is crucial for leadership, decision-making, and communication.
+
+2. **Clinical Data Manager**
+   - **Role on Project:** Oversee data collection, management, and integrity.
+   - **Person-Months:** 7.2 per year, totaling 36 person-months over five years.
+   - **Justification:** Given the medium complexity of data management in mental health research, a high level of effort is required to ensure accurate data collection, processing, and storage. This person will implement protocols to safeguard sensitive information and ensure high data quality and compliance with regulatory standards.
+
+3. **Statistician**
+   - **Role on Project:** Responsible for data analysis and statistical integrity.
+   - **Person-Months:** 6.0 per year, totaling 30 person-months over five years.
+   - **Justification:** Critical for the statistical design and analysis of the research. They will develop appropriate methodologies for analyzing data, interpret results, and contribute substantially to manuscript development.
+
+4. **Clinical Project Manager**
+   - **Role on Project:** Manage clinical aspects and operations of the project.
+   - **Person-Months:** Varies from 9.0 to 8.4 per year, totaling 44.4 person-months over five years.
+   - **Justification:** Essential for coordinating clinical management activities, ensuring project milestones are met, and adapting processes in response to any project shift. This high level of involvement is typical for projects requiring detailed management of clinical operations.
+
+5. **Business Project Manager**
+   - **Role on Project:** Manage project finances and resources.
+   - **Person-Months:** Progressively reduced from 3.0 to 0.0, totaling 4.8 person-months over five years.
+   - **Justification:** Critical in the initial setting up of project structures and resource allocation. As the project's framework and operations stabilize, the required effort decreases, reflecting the transition to maintenance mode.
+
+6. **Ops Leader**
+   - **Role on Project:** Operational oversight.
+   - **Person-Months:** Allocated between 1.2 to 0.6, totaling 4.8 person-months over five years.
+   - **Justification:** Provides operational support and leadership in the daily functioning of the project. Responsible for optimizing processes and ensuring operational guidelines are followed.
+
+Other roles such as the Administrative Program Coordinator, Biometrics Management, and Finance provide ongoing support across various facets of the project, ensuring compliance, financial oversight, and administrative management, critical for the seamless execution of project activities.
+
+Each personnel's role is aligned with the project's objectives and the specific requirements of the funding opportunity, ensuring each person's expertise contributes effectively to the overall success of the research initiative.

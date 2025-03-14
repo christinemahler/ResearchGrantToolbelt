@@ -1,0 +1,19 @@
+Using the provided study complexity details for funding opportunity PAR-25-283, let's proceed to estimate the effort allocation and calculate person months for the various roles over a five-year period.
+
+Since the duration of the project is typically around five years and based on the provided minimal and medium complexities in different aspects, here are the effort allocations and calculations assuming a 5-year project duration:
+
+| Roles                               | Year 1 % | Year 1 PM | Year 2 % | Year 2 PM | Year 3 % | Year 3 PM | Year 4 % | Year 4 PM | Year 5 % | Year 5 PM |
+|-------------------------------------|---------|-----------|---------|-----------|---------|-----------|---------|-----------|---------|-----------|
+| **DCC Principal Investigator**          | 15%     | 1.8       | 15%     | 1.8       | 15%     | 1.8       | 15%     | 1.8       | 15%     | 1.8       |
+| **Clinical Data Manager**               | 60%     | 7.2       | 60%     | 7.2       | 60%     | 7.2       | 60%     | 7.2       | 60%     | 7.2       |
+| **Statistician**                        | 50%     | 6.0       | 50%     | 6.0       | 50%     | 6.0       | 50%     | 6.0       | 50%     | 6.0       |
+| **Clinical Project Manager**            | 75%     | 9.0       | 75%     | 9.0       | 75%     | 9.0       | 75%     | 9.0       | 70%     | 8.4       |
+| **Business Project Manager**            | 25%     | 3.0       | 10%     | 1.2       | 5%      | 0.6       | 0%      | 0.0       | 0%      | 0.0       |
+| **Ops Leader**                          | 10%     | 1.2       | 10%     | 1.2       | 10%     | 1.2       | 5%      | 0.6       | 5%      | 0.6       |
+| **Administrative Program Coordinator**  | 10%     | 1.2       | 10%     | 1.2       | 10%     | 1.2       | 10%     | 1.2       | 10%     | 1.2       |
+| **Biometrics Management**               | 5%      | 0.6       | 5%      | 0.6       | 5%      | 0.6       | 5%      | 0.6       | 5%      | 0.6       |
+| **Clinical Project Manager Management** | 5%      | 0.6       | 5%      | 0.6       | 5%      | 0.6       | 5%      | 0.6       | 5%      | 0.6       |
+| **Finance**                             | 5%      | 0.6       | 5%      | 0.6       | 5%      | 0.6       | 5%      | 0.6       | 5%      | 0.6       |
+| **IT Management**                       | 0%      | 0.0       | 0%      | 0.0       | 0%      | 0.0       | 0%      | 0.0       | 0%      | 0.0       |
+
+Effort values are allocated based on the minimal requirements and the nature of the project as described for the funding opportunity. Calculations for person months were done using the percentage effort multiplied by 12.
