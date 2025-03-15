@@ -1,0 +1,21 @@
+Based on the complexity and requirements of funding opportunity PAR-25-283, here is the estimated total cost per category for the entire duration of the project:
+
+| Category                                   | Total Cost (All project years $) |
+|--------------------------------------------|---------------------------------|
+| Equipment                                  | $10,000                          |
+| Travel                                     | $15,000                          |
+| Trainee Costs                              | $0                               |
+| Materials and Supplies                     | $20,000                          |
+| Site Monitoring                            | $25,000                          |
+| Data and Safety Monitoring Board           | $20,000                          |
+| Single/Multiple IRB                        | $15,000                          |
+| Publication Costs                          | $10,000                          |
+| Consultant Services                        | $30,000                          |
+| ADP/Computer Services                      | $5,000                           |
+| Alterations and Renovations                | $0                               |
+| Research Patient Care Costs                | $0                               |
+| Tuition                                    | $0                               |
+| Human Fetal Tissue from elective abortions | $0                               |
+| Other                                      | $5,000                           |
+
+These estimates are based on a medium complexity project with a focus on mental health services research, involving standard regulatory, data management, operational practices, and statistical processes. This budget structure supports the overall research needs and compliance with NIH requirements for this specific type of project.

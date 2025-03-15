@@ -1,0 +1,19 @@
+Below is the table displaying both the yearly effort allocation percentages and the corresponding calculated person months for the different roles involved in the NIH research project under funding opportunity PAR-25-283. The project's complexity and required roles have been considered to estimate these values.
+
+| Role                                   | Year 1 Effort (%) | Year 1 Person Months | Year 2 Effort (%) | Year 2 Person Months | Year 3 Effort (%) | Year 3 Person Months |
+|----------------------------------------|-------------------|----------------------|-------------------|----------------------|-------------------|----------------------|
+| DCC Principal Investigator             | 15%               | 1.8                  | 15%               | 1.8                  | 15%               | 1.8                  |
+| DCC Co-Principal Investigator          | 15%               | 1.8                  | 15%               | 1.8                  | 15%               | 1.8                  |
+| Clinical Data Manager                  | 60%               | 7.2                  | 60%               | 7.2                  | 60%               | 7.2                  |
+| Statistician                           | 50%               | 6.0                  | 50%               | 6.0                  | 50%               | 6.0                  |
+| Clinical Project Manager               | 75%               | 9.0                  | 75%               | 9.0                  | 75%               | 9.0                  |
+| Business Project Manager               | 25%               | 3.0                  | 5%                | 0.6                  | 0%                | 0.0                  |
+| IT Operations                          | 5%                | 0.6                  | 5%                | 0.6                  | 5%                | 0.6                  |
+| Ops Leader                             | 10%               | 1.2                  | 10%               | 1.2                  | 10%               | 1.2                  |
+| Administrative Program Coordinator     | 10%               | 1.2                  | 10%               | 1.2                  | 10%               | 1.2                  |
+| Regulatory and Quality Assurance Manager | 5%              | 0.6                  | 5%                | 0.6                  | 5%                | 0.6                  |
+| Finance                                | 5%                | 0.6                  | 5%                | 0.6                  | 5%                | 0.6                  |
+| Biometrics Management                  | 5%                | 0.6                  | 5%                | 0.6                  | 5%                | 0.6                  |
+| Clinical Project Manager Management    | 5%                | 0.6                  | 5%                | 0.6                  | 5%                | 0.6                  |
+
+This table provides the necessary information to understand the personnel budget structure in all phases of the project. Adjustments to the percentage of time dedicated depend on the specific requirements of each project year.

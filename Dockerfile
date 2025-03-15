@@ -6,6 +6,18 @@ FROM ghcr.io/astral-sh/uv:python3.13-bookworm-slim
 RUN useradd -m -u 1000 user
 USER user
 
+# 🔹 Install required system packages
+RUN apt-get update && apt-get install -y \
+    texlive-latex-extra \
+    texlive-fonts-recommended \
+    texlive-fonts-extra \
+    texlive-xetex \
+    lmodern \
+    ghostscript \
+    wkhtmltopdf \
+    xvfb \
+    && apt-get clean
+
 # Set the home directory and path
 ENV HOME=/home/user \
     PATH=/home/user/.local/bin:$PATH        
