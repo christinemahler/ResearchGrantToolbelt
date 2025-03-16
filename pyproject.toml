@@ -41,4 +41,5 @@ dependencies = [
     "pdfkit>=1.0.0",
     "markdown>=3.7",
     "pypandoc>=1.15",
+    "pandoc>=2.4",
 ]

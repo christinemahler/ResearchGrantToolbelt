@@ -1,0 +1,66 @@
+/* Custom styles for the chat interface */
+.chat-message {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.user-message {
+    background-color: #E8F5FE;
+}
+
+.assistant-message {
+    background-color: #F8F9FA;
+}
+
+.processing-message {
+    background-color: #FFF3E0;
+}
+
+/* Animation for messages */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2E86C1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1B4F72;
+}
+
+/* File attachment styling */
+.file-attachment {
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px 0;
+    background-color: #F8F9FA;
+}
+
+/* Code block styling */
+pre {
+    background-color: #282c34 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+}
+
+code {
+    font-family: 'Fira Code', monospace !important;
+} 
