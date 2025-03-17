@@ -327,18 +327,6 @@ def create_random_subdirectory():
 WORKING_DIRECTORY = Path(budget_directory)
 
 @tool
-def create_outline(
-    points: Annotated[List[str], "List of main points or sections."],
-    file_name: Annotated[str, "File path to save the outline."],
-) -> Annotated[str, "Path of the saved outline file."]:
-    """Create and save an outline."""
-    with (WORKING_DIRECTORY / file_name).open("w") as file:
-        for i, point in enumerate(points):
-            file.write(f"{i + 1}. {point}\n")
-    return f"Outline saved to {file_name}"
-
-
-@tool
 def read_document(
     file_name: Annotated[str, "File path to save the document."],
     start: Annotated[Optional[int], "The start line. Default is 0"] = None,
@@ -739,9 +727,21 @@ async def initialize_agents():
     )
     projects_summary_node = functools.partial(agent_node, agent=projects_summary_agent, name="ProjectsSummary")
 
+    general_requests_prompt = '''
+    You are a research assistant who responds to general requests. You give your other teammates a chance to respond first.
+    When it's your turn, you must only respond with information related to the request. 
+    '''
+
+    general_requests_agent = create_agent(
+        small_llm,
+        [do_nothing],
+        general_requests_prompt,
+    )
+    general_requests_node = functools.partial(agent_node, agent=general_requests_agent, name="GeneralRequests")
+
     supervisor_agent_prompt = '''
     You are a supervisor tasked with managing a conversation between the following workers: 
-    Search, OpportunitiesSummary, ProjectsSummary, OpportunitiesInformationRetriever, ProjectsInformationRetriever, PublicationSearch, BudgetGenerator. 
+    Search, OpportunitiesSummary, ProjectsSummary, OpportunitiesInformationRetriever, ProjectsInformationRetriever, PublicationSearch, BudgetGenerator, GeneralRequests. 
     Given the following user request, determine the content type to be researched and respond with the worker to act next. Each worker will perform a 
     task and respond with their results and status. You should never ask your team to do anything beyond research. They are not required to write content or posts.
     You trust in your workers and the tools they are using to do their work, providing guidance as needed.
@@ -999,6 +999,7 @@ async def initialize_agents():
     research_graph.add_node("StudyComplexityWriter", study_complexity_writer_node)
     research_graph.add_node("FinalBudgetWriter", final_budget_writer_node)
     research_graph.add_node("Dopifier", dopifier_writer_node)
+    research_graph.add_node("GeneralRequests", general_requests_node)
 
     research_graph.add_edge("OpportunitiesInformationRetriever", "supervisor")
     research_graph.add_edge("ProjectsInformationRetriever", "supervisor")
@@ -1023,12 +1024,13 @@ async def initialize_agents():
     research_graph.add_edge("FinalBudgetWriter", "Dopifier")
     research_graph.add_edge("Dopifier", END)
     research_graph.add_edge("BudgetGenerator", "supervisor")
+    research_graph.add_edge("GeneralRequests", "supervisor")
 
     research_graph.add_conditional_edges(
         "supervisor",
         lambda x: x["next"],
         {"BudgetGenerator": "BudgetGenerator", "OpportunitiesInformationRetriever": "OpportunitiesInformationRetriever", "ProjectsInformationRetriever": "ProjectsInformationRetriever",
-        "PublicationSearch": "PublicationSearch", "Search": "Search", "OpportunitiesSummary": "OpportunitiesSummary", "ProjectsSummary": "ProjectsSummary",  "FINISH": END},
+        "PublicationSearch": "PublicationSearch", "Search": "Search", "OpportunitiesSummary": "OpportunitiesSummary", "ProjectsSummary": "ProjectsSummary", "GeneralRequests": "GeneralRequests", "FINISH": END},
     )
 
     research_graph.set_entry_point("supervisor")
@@ -1091,7 +1093,16 @@ async def handle_message(message: cl.Message):
     processing_msg = await cl.Message(content="Processing your request... This may take a few minutes.").send()
     
     response = await chain.ainvoke({"messages" : [message.content], "team_members" : ", ".join(chain.nodes)})
-    await cl.Message(response['messages'][-1].content).send()
+    if response and 'messages' in response and response['messages']:
+        last_message = response['messages'][-1]
+        if hasattr(last_message, 'content'):
+            await cl.Message(content=last_message.content).send()
+        else:
+            # Handle case where message is a dict or string
+            content = last_message.get('content') if isinstance(last_message, dict) else str(last_message)
+            await cl.Message(content=content).send()
+    else:
+        await cl.Message(content="No response generated.").send()
     
     # Check for PDF
     file_path = os.path.join(budget_directory, "FinalBudgetProposal.pdf")

@@ -21,7 +21,9 @@ The first phase of this project is to develop a process to build out a budget fo
 
 ### Task 2: Propose a Solution
 
-**Solution Summary:** I propose developing a multi-agent system composed of a research or information-gathering team, a budget analysis team, and a writers team that works as follows:
+> **Note:** The solution changed during the development process due to issues encountered during the testing process. Both the initial solution and the final solution are provided below.
+
+**Initial Solution Summary:** I propose developing a multi-agent system composed of a research or information-gathering team, a budget analysis team, and a writers team that works as follows:
 
 * *Information-Gathering Team:* Collects the information needed to produce a comprehensive budget. This could include all of the following:
     * Funding Opportunity Information (https://grants.nih.gov/funding/nih-guide-for-grants-and-contracts)
@@ -38,56 +40,76 @@ The first phase of this project is to develop a process to build out a budget fo
 
 The budget creation process will necessarily be a multi-step process beginning with a study complexity assessment and ending with a preliminary budget that may be used in the budget creation process. Additional enhancements to the system may allow an end user to upload a budget or recall a budget from memory and make tweaks to it as needed.
 
+**Final Solution Summary:** Upon developing and testing the initial proposed solution above, it was found that the application did not perform quite as well as intended. Going from one team to another would often result in important information getting lost along the way. The solution was to move the budget analysis and documentation components within the research team itself and to develop more controlled, asynchronous pipelines for completing the different parts of the budget documentation. The final architecture is now as follows:
+
+- *Opportunities Information Retriever Agent:* Provides general information about specific funding opportunities using a naive RAG pattern.
+- *Budget Generator Agent:* Assesses study complexity for provided funding opportunity and passes to the following agent flows for further processing:
+    - *Personnel Effort Agent:* Estimates personnel effort using the provided study complexity.
+    - *Personnel Effort Writer Agent:* Writes the estimated personnel effort to a text file.
+    - *Personnel Justifications Agent:* Uses the estimated personnel effort to produce a list of justifications.
+    - *Personnel Justifications Writer Agent:* Writes the estimated personnel justifications to a text file.
+    - *Non-Personnel Costs Agent:* Estimates non-personnel costs using the provided study complexity.
+    - *Non-Personnel Costs Writer Agent:* Writes the estimated non-personnel costs to a text file.
+    - *Non-Personnel Costs Justification Agent:* Uses the estimated non-personnel costs to produce a list of justifications.
+    - *Non-Personnel Costs Justification Writer Agent:* Writes the estimated non-personnel costs justifications to a text file.
+    - *Final Budget Writer Agent:* Combines all the information from the budget workflows above to produce a final budget document.
+    - *Dopifier Agent:* Generates a downloadable PDF version of the final budget document.
+- *Project Information Retriever Agent:* Provides general information about specific NIH projects using a naive RAG pattern.
+- *Opportunities Summary Agent:* Provides summary-level funding opportunity information using a naive RAG pattern.
+- *Projects Summary Agent:* Provides summary-level projects information using a naive RAG pattern.
+- *Publication Search Agent:* Searches PubMed site for relevant publications.
+- *Search Agent:* Searches internet for relevant information.
+
 **Tools Overview:**
-* **LLM:** While I have not yet determined what model I will use for my final project, I know it would be best to use one suited to this specific domain, i.e. healthcare/research. A quick Google search suggests Med-PaLM might be a good match, but this will depend on what kind of access I can get to the model. 
 
-    As this model does not initially appear to be supported by the orchestration framework that I intend to use - https://python.langchain.com/docs/integrations/chat/ - I will likely need to choose another. 
+> **Note:** Several of these tools will be modified in the production phase of this project as the need for data protections will arise when integrating effort allocation and historical budget data.
 
-    I did, however finally some documentation on LangChain's website that suggests I can use a Hugging Face model instead: https://python.langchain.com/docs/integrations/llms/huggingface_endpoint/ In which case I may try to use one of the models from the Open Medical LLM Leaderboard (https://huggingface.co/spaces/openlifescienceai/open_medical_llm_leaderboard). This will obviously require some additional testing.
+* **LLM Models:** For the first phase of this project, I have stuck with an assortment of OpenAI models as follows:
 
-    For now, I have stuck with the gpt-4o-mini model as it performs fairly well with most use cases.
+    - small_llm = gpt-4o-mini
+    - medium_llm = gpt-4o
+    - large_llm = gpt-4-turbo
+    - xlarge_llm = o1
 
-* **Embedding Model:** Since this domain is especially specialized, I believe it would be best to use a fine-tuned model again specific to the healthcare domain. And to train it on a collection of funding opportunities and research project datasources identified earlier. I will also be limited in what I can do with my GPU resources in Colab as well, so I will need to stick with something comparable to the Snowflake/snowflake-arctic-embed-l used in our class assignments.
+    Different models are used for varying levels of complexity with the supervisor and budget analysis agents using the large_llm and the others using a smaller model. The xlarge_llm model is included only for testing purposes at this time.
 
-    When filtered for the MTEB (Medical, v1) benchmark, Hugging Face's Embedding Leaderboard (https://huggingface.co/spaces/mteb/leaderboard) suggests there may be several zero-shot options, e.g.
+    For future phases and given the sensitivity of the effort allocation and budget data when fully integrated, it will be essential to use a self-hosted LLM for at least the budget generator process and for which we can likely stand up a private Hugging Face inference endpoint: https://huggingface.co/inference-endpoints/dedicated
 
-    * https://huggingface.co/Snowflake/snowflake-arctic-embed-m-v2.0
-    * https://huggingface.co/BAAI/bge-base-en-v1.5
-    * https://huggingface.co/nomic-ai/nomic-embed-text-v1-ablated
+* **Embedding Model:** 
 
-    I did some testing already with the first one and ran into some issues. I will have to continue testing to see if I can resolve those issues. For now, I have stuck with a fine-tuned Snowflake/snowflake-arctic-embed-lSnowflake/snowflake-arctic-embed-l embedding.
+* **Orchestration:** LangGraph
 
-* **Orchestration:** I will likely stick with LangGraph for building out my agentic workflows as we have been exposed to this framework in class and it does streamline the development process. I would be interested in exploring other frameworks but think I should remain focused on accomplishing the task at hand given what I know.
+* **Vector Database:** Three collections - Opportunities, Projects, and Opportunities Sumamry - are stored in a cloud-hosted Qdrant database. The data is loaded initially through a separate process and ideally would be maintained using some automated pipeline in the future. 
 
-    For this midterm, I set up a simple RAG pipeline using LangGraph with just 2 nodes - retrieve and generate.
+    Additional work was started on an in-memory database that loads budget guidelines from NIH's website. These guidelines would be used to answer general questions about the budget generation process once again following a naive RAG pattern.
 
-* **Vector Database:** Again, I will likely stick with the vector database we have been using in our assignments - Qdrant - although I would eventually like to explore other possible solutions, e.g. FAISS. I will also need to determine whether or not it's possible for me to host this somewhere else as I will be limited most likely to what I can store in memory wherever I end up hosting this application.
+* **Monitoring:** LangSmith (turned off for the time being)
 
-    One important factor for my vector database will be maintaining metadata with the stored document embeddings such that we can recall specific pieces with specific funding opportunities and/or projects.
+* **Evaluation:** 
 
-    I did stick with the in-memory Qdrant database for this midterm and will certainly need to change that configuration at a later time.
+* **User Interface:**  Chainlit
 
-* **Monitoring:** Again, I will likely stick with the LangSmith framework we have used in class as this is a vey simple configuration at the beginning of the pipeline and very intuitive to understand. *NOTE: I do not have this turned on though for the quick prototype in this midterm.*
-
-* **Evaluation:** I will also likely stick with the Ragas evaluation framework that we have used in our class assignments (and in this midterm) unless we learn of any other potentially useful solutions. 
-
-* **User Interface:**  Initially, I didn't think a chat interface would be useful in this case, but I may be changing my mind as I find it may be useful for the end user to query the model for other grant-related information, e.g. application due dates, application specifications, application contacts, etc. It will be important to provide some example queries though to make it clear how the budget creation process will work.
-
-    I developed a Chainlit app for this midterm project and am hosting it on Hugging Face. The public URL may be found below.
-
-* **Agent Details:** I provided more comprehensive agent details in the Summary section above, but in summary, this solution would consist of 3 specific teams and 1 supervisor:
-
-    * Information-Gathering Team
-    * Budget Analysis Team
-    * Writers Team
-
-    I have *not* developed an agentic prototype for this midterm as I was more focused on the specific objective of demonstrating I could produce the first piece of this application, i.e. assessing the study complexity for a specific funding opportunity.
+* **Agent Tools:** 
+    - *assess_study_complexity:* Uses a naive RAG pattern and prompt to assess the study complexity for the requested funding opportunity.
+    - *retrieve_opportunities_information:* Uses a naive RAG pattern to answer general questions about funding opportunities.
+    - *retrieve_projects_information:* Uses a naive RAG pattern to answer general questions about NIH projects.
+    - *summarize_opportunities:* Uses a naive RAG pattern to summarize information about funding opportunities.
+    - *summarize_projects:* Uses a naive RAG pattern to summarize information about NIH projects.
+    - *calculate_person_months:* Calculates person months using effort allocation %.
+    - *read_document:* Reads documents.
+    - *write_document:* Writes documents.
+    - *edit_document:* Edits documents.
+    - *combine_text_files:* Combines documents into a single text file. The final combined file is explicitly named for the time being to control for issues with downloading. THis may be revised at a later time.
+    - *save_text_as_markdown:* Converts a text file to markdown to prepare for converting to PDF. 
+    - *convert_markdown_to_pdf_using_pdfkit:* Converts a markdown file to PDF.
+    - *convert_txt_to_docx:* Not currently used, this tool converts a text file to a .docx file.
+    - *remove_text_files:* Removes all text files within the specified directory.
 
 ### Task 3: Dealing with the Data
 
-**Datasources Used:**
+> **Note:** Some of the datasources - Scope Documents, Budget Documents, Effort Allocation - have not yet been integrated into this application as they are still in the process of being finalized and/or collected. They will also need to be protected.
 
-While the exact implementation details for some of these datasources remain to be sorted, here are the datasources I think will be required:
+**Datasources:**
 
 * *NIH Funding Opportunities List:* https://grants.nih.gov/funding/nih-guide-for-grants-and-contracts (will need to be manually extracted and used to extract the funding opportunities below as there does not appear to be an API for this)
 
@@ -95,82 +117,45 @@ While the exact implementation details for some of these datasources remain to b
 
 * *NIH Projects:* https://api.reporter.nih.gov/ (likely filtered for just University of Utah projects)
 
-* *Scope Documents:* These will be strictly internal documents developed by Data Coordinating Center employees. While I do have some examples we may use, I may create test documents instead. 
+* *Scope Documents:* These will be strictly internal documents developed by Data Coordinating Center employees. They will provide some additional scoping information relevant to the budget generation process.
 
-* *Budget Documents:* These will also be strictly internal documents developed by Data Coordinating Center employees. I do not currently have any examples that I can use, but I can likely produce some test data that's close enough to what will be needed.
+* *Budget Documents:* These will also be strictly internal documents developed by Data Coordinating Center employees. They include historical budget documents that may be used to fine-tune the budget generation process.
 
-* *Effort Allocation:* This is perhaps the hardest data to account for as the data is likely incomplete and not in a format that can be easily combined with the other sources. So, again I may do some test data generation here that gets us close enough to the ideal format.
+* *Effort Allocation:* Strictly internal actual effort allocation data recorded by Data Coordinating Center employees.
 
-For this midterm project, I simply loaded a handful of funding opportunities. Ideally, I'd have them all pre-loaded and updated on a schedule. 
-
-**Chunking Strategy:** The chucking strategy will depend on the datasource identified above, but I'll need to ensure the documents retain some metadata that facilitates the retrieval process at a later time. A naiive chunking strategy would not be appropriate in this case as the chat model will not be able to infer which chuck is associated with which document. 
+**Chunking Strategy:** The chucking strategy depends on the datasource identified above but requires the documents retain some metadata that facilitates the retrieval process at a later time. 
 
 ### Task 4: Building a Quick End-to-End Pipeline
 
-As noted above, I have *not* developed an agentic prototype for this midterm as I was more focused on the specific objective of demonstrating I could produce the first necessary piece of the budget creation process, i.e. assessing the study complexity for a specific funding opportunity.
+- **Application:** 
+- **Application Development Notebook:**
+- **Data Load Notebook:** 
 
-**Public Link:** https://huggingface.co/spaces/christinemahler/AIE5-Midterm
+### Future Phases
 
-*Note: You may also view the notebook where I developed the preliminary code and started work on some of the other components here:* https://github.com/christinemahler/AIE5/blob/main/Midterm/RAG%20Development.ipynb
+Future phases of this project will mostly involve making this application production-ready and adding additional features. 
 
-### Task 5: Creating a Golden Test Data Set
+**Phase 2 (Budget Generation Fine-Tuning):**
+- Add historical budgets, effort allocation, and scope documents to vector store
+- Develop additional agents for budget fine-tuning
+- Change LLM models for budget generation workflow
 
-*NOTE: Because I am limited in what I can do locally on my own computer, I created a "golden" test data set in the Google Colab separate from my main prototype code developed above. A link to that completed notebook is provided below.*  
+**Phase 3 (Production Readiness):**
+- Finalize vector store hosting location
+- Finalize application hosting location
+- Build/schedule data pipelines for all data sources
+- Additional fine-tuning and performance optimization as needed
+- Establish cost control measures
+- Determine deployment model (CI/CD)
+- Establish monitoring and maintenance plan
+- Create security plan
 
-**Link to Google Colab Notebook Used:** https://github.com/christinemahler/AIE5/blob/main/Midterm/Fine%20Tuning%20and%20Evaluation.ipynb
+**Phase 3 (Production):**
+- Deployment
+- Distribution
 
-I put "golden" in quotes above because I do think my test data set needs some additional tweaking after creating it. Likely due to the size of my dataset, this process took 45 minutes to complete on each attempt and did not generate the kinds of questions I would expect for my specific use case. Rather than spend any more time on it though, I decided to proceed with the other tasks required for this midterm project. 
+**Phase 3 (Enhancements):**
+- Add additional features, e.g. support for developing other grant application materials
 
-That being said, the initial performance is terrible:
-
-| Metric | Score | Interpretation |
-| --- | --- | --- |
-| Context Recall | 0% | App is not retrieving any relevant documents |
-| Faithfulness | 25% | App response is at least somewhat factually consistent with the retrieved context |
-| Factual Correctness | N/A | There does not appear to be any correlation between the reference and the retrieved context (this likely makes sense given the poor quality of the test data) |
-| Answer Relevancy | 10% | There is not close alignment between the user input and the response generated | 
-| Context Entity Recall | 0% | There does not appear to be any correlation between the reference and the retrieved context (this likely makes sense given the poor quality of the test data) |
-| Noise Sensitivity Relevant | 0% | The only good score in this evaluation, the app does not appear to be susceptible to providing incorrect responses using the provided context |
-
-### Task 6: Fine-Tuning Open-Source Embeddings
-
-I mentioned this above, but I did try some other embeddings instead of the Snowflake/snowflake-arctic-embed-l one we've been using in class, but I ran into either memory issues or some other issues. So, I've just stuck with using Snowflake/snowflake-arctic-embed-l to fine-tune with my funding opportunities data for the time being. A link to the embedding model is provided below:
-
-**Public Link:** https://huggingface.co/christinemahler/aie5-midterm
-
-The screenshot below is one of the issues encountered when trying to use a different embedding type:
-
-![image](EmbeddingIssues.png)
-
-### Task 7: Assessing Performance
-
-**Fine-Tuning Evaluation Results:** While performance is improved, it's still not especially great.
-
-| Metric | Score | Interpretation |
-| --- | --- | --- |
-| Context Recall | 20% | Improved a little from the base model, the app is still not doing a good job retrieving relevant documents |
-| Faithfulness | 25% | Factual consistency with the retrieved context remains the same |
-| Factual Correctness | 39% | There now appears to be some matching data between the reference and retrieved contexts |
-| Answer Relevancy | 49% | There is closer (originally 10%) alignment between the user input and the response generated | 
-| Context Entity Recall | 13% | There still is little matching data between the reference and retrieved contexts |
-| Noise Sensitivity Relevant | 0% | Still the only good score in this evaluation, the app does not appear to be susceptible to providing incorrect responses using the provided context |
-
-**Improvements:**
-There is still quite a bit of work to be done to add in the other components to this application. While all of these things may not be possible to achieve in the final weeks of the course, these are the next steps I forsee needing to complete:
-
-1) Improve Sythetically Generated Data.
-2) Improve fine-tuned embedding and possibly identify alternate open-source model. Would've liked to use https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0 but was limited by GPU. Tried to use https://huggingface.co/Snowflake/snowflake-arctic-embed-m-v2.0 but ran into other issues that could potentially be sorted.
-3) Does a multi-RAG process make sense?
-4) Generate test budget data.
-5) Generate test effort allocation data.
-6) Determine whether data can be hosted elsewhere. 
-7) Load other data sources into vector store and create retrievers.
-7) Write custom tools for generating budget line items and writing documents.
-8) Build agentic workflow.
-9) Add monitoring.
-10) Complete other relevant evaluations.
-11) Decide where this will be hosted and what front-end I will use.
-
-### Loom Video Presentation
-
-Link to video: https://www.loom.com/share/ba91d87778b84644adf84e89723ca25c?sid=dd860fc9-4176-4911-a1ac-bbda87a65bd8
+**Phase 4 (Growth):**
+- Add support for other non-NIH funding opportunities
