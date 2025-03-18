@@ -1,0 +1,22 @@
+The budget for funding opportunity PAR-25-283, titled "Innovative Mental Health Services Research Not Involving Clinical Trials" has been formulated. Below are the key elements:
+
+### [Budget Overview:](https://grants.nih.gov/grants/guide/pa-files/PAR-25-283.html)
+- **Project Duration:** Not specified
+- **Complexity:** Overall, the project complexity is assessed as low to medium.
+
+### Personnel Costs:
+- **Roles and Efforts:** The personnel involve a range of roles from Principal Investigator, Clinical Data Manager, Statistician, and more, with effort percentages spanning from 5% to 75% across a 5-year duration.
+  
+### Non-Personnel Costs:
+- **Total Estimated Budget:** $0
+  - This placeholder value indicates that actual costs need to be computed based on further specifications such as project duration and detailed requirements.
+
+### Key Points:
+- It is important to note that the financial planning for this project is oriented towards low complexity management, and the major focus has been given to personnel management, reflective of the significant personnel roles detailed.
+- The lack of non-personal expenses might suggest that the project is primarily focusing on data-driven or theoretical work that doesn't require high external spending.
+
+### Recommendations for Completion:
+1. **Determination of Project Duration:** Specific details concerning the project duration will profoundly impact the total budget and should be defined.
+2. **Detailed Cost Analysis:** Once a project period is determined, a detailed cost analysis for non-personnel expenses should be undertaken considering potential needs that might arise during the project lifespan.
+
+This budget plan serves as a fundamental framework that needs specific input related to project duration to fully flesh out a comprehensive budget. For further progress, these gaps need to be filled with accurate, specific details.

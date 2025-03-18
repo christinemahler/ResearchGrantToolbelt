@@ -46,6 +46,8 @@ The budget creation process will necessarily be a multi-step process beginning w
 - *Budget Generator Agent:* Assesses study complexity for provided funding opportunity and passes to the following agent flows for further processing:
     - *Personnel Effort Agent:* Estimates personnel effort using the provided study complexity.
     - *Personnel Effort Writer Agent:* Writes the estimated personnel effort to a text file.
+    - *Personnel Costs Agent:* Calculates personnel costs from the estimated effort allocations.
+    - *Personnel Costs Writer Agent:* Writes the personnel costs to a text file.
     - *Personnel Justifications Agent:* Uses the estimated personnel effort to produce a list of justifications.
     - *Personnel Justifications Writer Agent:* Writes the estimated personnel justifications to a text file.
     - *Non-Personnel Costs Agent:* Estimates non-personnel costs using the provided study complexity.

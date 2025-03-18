@@ -1,19 +1,19 @@
-### Comprehensive Personnel Costs Table for PAR-25-283
+### Personnel Budget Table for Five Years
 
-| Role                                   | Year 1 (USD)  | Year 2 (USD)  | Year 3 (USD)  | Year 4 (USD)  | Year 5 (USD)  | Total (USD)  |
-|----------------------------------------|---------------|---------------|---------------|---------------|---------------|--------------|
-| DCC Principal Investigator             | 22,500        | 22,500        | 22,500        | 22,500        | 22,500        | 112,500      |
-| Clinical Data Manager                  | 48,000        | 48,000        | 48,000        | 48,000        | 48,000        | 240,000      |
-| Statistician                           | 40,000        | 40,000        | 40,000        | 40,000        | 40,000        | 200,000      |
-| Clinical Project Manager               | 60,000        | 60,000        | 60,000        | 60,000        | 60,000        | 300,000      |
-| Business Project Manager               | 20,000        | 16,000        | 12,000        | 8,000         | 4,000         | 60,000       |
-| IT Operations                          | 4,000         | 4,000         | 4,000         | 4,000         | 4,000         | 20,000       |
-| Ops Leader                             | 10,000        | 10,000        | 10,000        | 10,000        | 10,000        | 50,000       |
-| Administrative Program Coordinator     | 6,000         | 6,000         | 6,000         | 6,000         | 6,000         | 30,000       |
-| Finance                                | 5,000         | 5,000         | 5,000         | 5,000         | 5,000         | 25,000       |
-| Biometrics Management                  | 5,000         | 5,000         | 5,000         | 5,000         | 5,000         | 25,000       |
-| Clinical Project Manager Management    | 5,000         | 5,000         | 5,000         | 5,000         | 5,000         | 25,000       |
-| IT Management                          | 10,000        | 10,000        | 10,000        | 10,000        | 10,000        | 50,000       |
-| **Total per Year**                     | 235,500       | 231,500       | 227,500       | 223,500       | 219,500       | 1,137,500    |
+| **Role**                       | **Year 1 Cost** | **Year 2 Cost** | **Year 3 Cost** | **Year 4 Cost** | **Year 5 Cost** | **Subtotal Cost** |
+|--------------------------------|----------------|----------------|----------------|----------------|----------------|-------------------|
+| DCC Principal Investigator     | $22,500        | $22,500        | $22,500        | $22,500        | $22,500        | $112,500          |
+| Clinical Data Manager          | $48,000        | $48,000        | $48,000        | $48,000        | $48,000        | $240,000          |
+| Statistician                   | $40,000        | $40,000        | $40,000        | $40,000        | $40,000        | $200,000          |
+| Clinical Project Manager       | $60,000        | $60,000        | $60,000        | $60,000        | $60,000        | $300,000          |
+| Business Project Manager       | $20,000        | $12,000        | $8,000         | $0             | $0             | $40,000           |
+| Ops Leader                     | $10,000        | $10,000        | $10,000        | $10,000        | $10,000        | $50,000           |
+| Administrative Coordinator      | $6,000         | $6,000         | $6,000         | $6,000         | $6,000         | $30,000           |
+| Finance                         | $4,000         | $4,000         | $4,000         | $4,000         | $4,000         | $20,000           |
+| Biometrics Management          | $5,000         | $5,000         | $5,000         | $5,000         | $5,000         | $25,000           |
+| Clinical Project Mgmt.         | $5,000         | $5,000         | $5,000         | $5,000         | $5,000         | $25,000           |
+| **Total Costs per Year**       | $220,500       | $212,500       | $208,500       | $200,500       | $200,500       | **$1,042,500**    |
 
-This table provides a detailed analysis of the personnel costs, for all roles involved in the project, calculated per year and across the full projected five-year lifespan of PAR-25-283. It incorporates the total costs for each role including their effort and benefits.
+> **Note:** The individual costs were calculated by applying the respective effort allocation percentage to the annual salary (including 15% benefits) for each listed role per year.
+
+This table will serve as the comprehensive personnel costs allocation for the budgeting process of the project under funding opportunity PAR-25-283.
