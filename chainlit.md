@@ -1,14 +1,19 @@
-# Welcome to Chainlit! 🚀🤖
+# Research Grant Toolbelt
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
+Welcome to Research Grant Toolbelt – Your AI-Powered Budget & Funding Assistant! 🏥💡
+Simplify your NIH budget development process with our intelligent assistant! 
 
-## Useful Links 🔗
+🔎 What You Can Do Here
+✅ Generate NIH-compliant budgets tailored to your proposal
+✅ Search for relevant NIH funding opportunities in real time
+✅ Explore previously funded NIH projects to refine your strategy
+✅ Find relevant publications linked to your research area
+✅ Access general NIH funding guidelines and compliance tips
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
+📄 Need a budget template? Just enter your project details, and we’ll generate a structured NIH budget for you.
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
+💰 Looking for funding? Search and filter NIH grant opportunities that match your research focus.
 
-## Welcome screen
+🔬 Want insights from past projects? Find funded NIH studies and related publications to strengthen your proposal.
 
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+📝 Let’s get started! Type your request or explore the available tools to optimize your NIH grant journey. 🚀

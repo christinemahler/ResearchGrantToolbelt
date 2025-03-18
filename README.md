@@ -150,12 +150,12 @@ Future phases of this project will mostly involve making this application produc
 - Establish monitoring and maintenance plan
 - Create security plan
 
-**Phase 3 (Production):**
+**Phase 4 (Production):**
 - Deployment
 - Distribution
 
-**Phase 3 (Enhancements):**
+**Phase 5 (Enhancements):**
 - Add additional features, e.g. support for developing other grant application materials
 
-**Phase 4 (Growth):**
+**Phase 6 (Growth):**
 - Add support for other non-NIH funding opportunities

@@ -1,4 +1,0 @@
-[UI]
-# ...
-# This can either be a css file in your `public` dir or a URL
-custom_css = '/public/styles.css'

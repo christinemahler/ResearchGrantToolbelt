@@ -1067,8 +1067,22 @@ async def start():
         # Store in user session
         cl.user_session.set("chain", chain)
         
+        content = '''Welcome to the Research Grant Toolbelt AI Assistant!
+        I can help you with:
+        - Finding NIH funding opportunities
+        - Creating detailed budgets
+        - Researching existing projects
+        - Analyzing study complexity
+        - And more!
+        
+        Try one of these example queries:
+        - Provide a list of funding opportunities for my research project
+        - Create a budget for funding opportunity PAR-25-283
+        - Provide a list of University of Utah projects
+        '''
+        
         # Send welcome message
-        await cl.Message(content="Hello! I'm ready to help you with NIH funding opportunities and budget planning.").send()
+        await cl.Message(content=content).send()
         
     except Exception as e:
         print(f"Initialization error: {str(e)}")
