@@ -1,0 +1,17 @@
+### NIH Personnel Budget Calculation for PAR-25-283
+
+#### Study Duration: 5 years
+
+#### Personnel Roles and Effort Allocation (% per year) & Person Months
+
+| Role                                   | Year 1         | Year 2         | Year 3         | Year 4         | Year 5         |
+|----------------------------------------|----------------|----------------|----------------|----------------|----------------|
+| DCC Principal Investigator             | 15% / 1.80 PM  | 15% / 1.80 PM  | 15% / 1.80 PM  | 15% / 1.80 PM  | 15% / 1.80 PM  |
+| Clinical Data Manager                  | 60% / 7.20 PM  | 60% / 7.20 PM  | 60% / 7.20 PM  | 60% / 7.20 PM  | 60% / 7.20 PM  |
+| Statistician                           | 50% / 6.00 PM  | 50% / 6.00 PM  | 50% / 6.00 PM  | 50% / 6.00 PM  | 50% / 6.00 PM  |
+| Clinical Project Manager               | 75% / 9.00 PM  | 75% / 9.00 PM  | 75% / 9.00 PM  | 75% / 9.00 PM  | 75% / 9.00 PM  |
+| Business Project Manager               | 25% / 3.00 PM  | 20% / 2.40 PM  | 15% / 1.80 PM  | 10% / 1.20 PM  | 5% / 0.60 PM   |
+| IT Operations                          | 5% / 0.60 PM   | 5% / 0.60 PM   | 5% / 0.60 PM   | 5% / 0.60 PM   | 5% / 0.60 PM   |
+| Ops Leader                             | 10% / 1.20 PM  | 10% / 1.20 PM  | 10% / 1.20 PM  | 10% / 1.20 PM  | 10% / 1.20 PM  |
+| Administrative Program Coordinator     | 10% / 1.20 PM  | 10% / 1.20 PM  | 10% / 1.20 PM  | 10% / 1.20 PM  | 10% / 1.20 PM  |
+| Finance                                | 5% / 0.60 PM   | 5% / 0.60 PM   | 5% / 0.60 PM   | 5% / 0.

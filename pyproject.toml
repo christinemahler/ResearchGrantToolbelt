@@ -42,4 +42,8 @@ dependencies = [
     "markdown>=3.7",
     "pypandoc>=1.15",
     "pandoc>=2.4",
+    "sentence-transformers>=3.4.1",
+    "datasets>=3.3.2",
+    "pyarrow>=19.0.1",
+    "fsspec>=2024.12.0",
 ]

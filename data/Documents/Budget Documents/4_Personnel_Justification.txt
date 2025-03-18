@@ -1,0 +1,63 @@
+### Personnel Justification for PAR-25-283: Innovative Mental Health Services Research Not Involving Clinical Trials
+
+#### 1. DCC Principal Investigator
+- **Role & Contribution:**
+  - **Person-Months:** 1.80 PM per year for 5 years.
+  - Justification: The principal investigator will oversee all project activities, ensuring compliance with the funding agency's guidelines, and ethical conduct of the research. They will also lead the direction of the research activities, coordinate the development of protocols, and ensure the integration of all project components.
+
+#### 2. Clinical Data Manager
+- **Role & Contribution:**
+  - **Person-Months:** 7.20 PM per year for 5 years.
+  - Justification: Responsibilities include managing the data collection processes, ensuring accurate and timely data processing, and maintaining a comprehensive database. The data manager is crucial for the integrity and security of sensitive mental health data, which is fundamental for robust research outcomes.
+
+#### 3. Statistician
+- **Role & Contribution:**
+  - **Person-Months:** 6.00 PM per year for 5 years.
+  - Justification: This role involves the design of statistical models, data analysis, and interpretation of data. The statistician will provide essential insights into data trends and outcomes that are critical for publishing credible, evidence-based research.
+
+#### 4. Clinical Project Manager
+- **Role & Contribution:**
+  - **Person-Months:** 9.00 PM per year for 5 years.
+  - Justification: The project manager will oversee the day-to-day operations of the project, including monitoring of project milestones and coordination among different teams. This role is vital for maintaining the project timeline and ensuring the project's objectives are met.
+
+#### 5. Business Project Manager
+- **Role & Contribution:**
+  - **Person-Months:** Ranging from 3.00 PM to 0.60 PM over 5 years.
+  - Justification: Focuses on the project’s financial and administrative aspects, ensuring budget adherence and resource allocation align with project phases. Their effort diminishes as the project progresses and major financial frameworks are established.
+
+#### 6. IT Operations
+- **Role & Contribution:**
+  - **Person-Months:** 0.60 PM per year for 5 years.
+  - Justification: Responsible for managing the project's IT requirements including data storage solutions and network management, ensuring a robust IT infrastructure to support uninterrupted research activities.
+
+#### 7. Ops Leader
+- **Role & Contribution:**
+  - **Person-Months:** 1.20 PM per year for 5 years.
+  - Justification: This role is critical for overseeing operational procedures across various departments, ensuring that operational protocols are adhered to, and facilitating smooth collaboration within the team.
+
+#### 8. Administrative Program Coordinator
+- **Role & Contribution:**
+  - **Person-Months:** 1.20 PM per year for 5 years.
+  - Justification: Manages administrative tasks related to the project, supporting project documentation and communication needs. This role is crucial for organizational support and efficiency.
+
+#### 9. Finance
+- **Role & Contribution:**
+  - **Person-Months:** 0.60 PM per year for 5 years.
+  - Justification: Manages budget tracking and financial reporting, ensuring that expenditures remain within the allocated budget and are correctly categorized and reported according to grant requirements.
+
+#### 10. Biometrics Management
+- **Role & Contribution:**
+  - **Person-Months:** 0.60 PM per year for 5 years.
+  - Justification: This role is crucial for the management of biostatistical data, including planning, execution and review of statistical analysis, delivering critical data interpretation for project validation.
+
+#### 11. Clinical Project Manager Management
+- **Role & Contribution:**
+  - **Person-Months:** 0.60 PM per year for 5 years.
+  - Justification: Provides oversight to the clinical project managers, ensuring consistent adherence to clinical protocols and timelines across all project sites.
+
+#### 12. IT Management
+- **Role & Contribution:**
+  - **Person-Months:** 1.20 PM per year for 5 years.
+  - Justification: Critical for the strategic planning and implementation of technological solutions that enhance research productivity and data security.
+
+Each person's role and contribution has been tailored to ensure the project’s objectives are met efficiently and effectively, supporting the overarching goal of enhancing mental health services research. This justifies the personnel allocations proposed herein.

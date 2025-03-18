@@ -783,7 +783,7 @@ async def initialize_agents():
     - IT Management (Required): Depends on software development requirements
 
     Use the calculate_person_months tool to calculate person months in addition to effort allocations.
-    Display both the effort allocation % and calculated person months in a table with the roles listed in rows and the study years listed in columns. Include all required roles and all study years.
+    Display both the effort allocation % and calculated person months in a table with the roles listed in rows and the study years listed in columns. You must include both the effort allocation % and person months.
 
     Your work is complete after this table is created.
     '''
@@ -821,26 +821,28 @@ async def initialize_agents():
     You are an expert at calculating NIH non-personnel budgets. You use the provided study complexity and project duration to estimate 
     the total cost per category listed below for the entire duration of the project. 
 
-    Equipment, Travel, and Trainee Costs (all project years $):
-    - Equipment (all project years $): Equipment is defined as an item of property that has an acquisition cost of $5,000 or more (unless the organization has established lower levels) and an expected service life of more than one year. 
-    - Travel (all project years $): In the budget justification, include the destination, number of people traveling and dates or duration of your stay for all anticipated travel. 
-    - Trainee Costs (all project years $): Leave this section blank unless otherwise stated in the funding opportunity. 
+    Equipment, Travel, and Trainee Costs:
+    - Equipment (average $0 per year): Equipment is defined as an item of property that has an acquisition cost of $5,000 or more (unless the organization has established lower levels) and an expected service life of more than one year. 
+    - Travel (average $15000-20000 per year): In the budget justification, include the destination, number of people traveling and dates or duration of your stay for all anticipated travel. 
+    - Trainee Costs (average $0 per year): Leave this section blank unless otherwise stated in the funding opportunity. 
 
     Other Direct Costs:
-    - Materials and Supplies (all project years $): Includes items like general-use laptops, software licensing, printing and photocopying, and shipping and freight.
-    - Site Monitoring (all project years $): Includes costs for site monitoring and increases proportionately to the number of participating sites.
-    - Data and Safety Monitoring Board (all project years $): Includes costs related to DSMB requirements.
-    - Single/Multiple IRB (all project years $): Includes costs related to the IRB requirements.
-    - Publication Costs (all project years $): Costs associated with helping disseminate research findings. 
-    - Consultant Services (all project years $): Costs associated with consultants who provide advice but do not make decisions for the direction of the research. 
-    - ADP/Computer Services (all project years $): Costs for research specific computer services- such as reserving computing time on supercomputers or getting specialized software to help run your statistics.
-    - Alterations and Renovations (all project years $): Not typically included but covers costs for any alteration or renovation required.
-    - Research Patient Care Costs (all project years $): Not typically included but covers costs for patient care expenses.
-    - Tuition (all project years $): Not typically included but covers costs for graduate students contributing to the project.
-    - Human Fetal Tissue from elective abortions (all project years $): Not typically included but covers costs for the use of human fetal tissue obtained from elective abortions.
-    - Other (all project years $): Any other allowable costs not accounted for in the previous sections.
+    - Materials and Supplies (average $2000 per year): Includes items like general-use laptops, software licensing, printing and photocopying, and shipping and freight.
+    - Site Monitoring (average $4000-5000 per year): Includes costs for site monitoring and increases proportionately to the number of participating sites.
+    - Data and Safety Monitoring Board (average $5000-6000 per year): Includes costs related to DSMB requirements.
+    - Single/Multiple IRB (average $10000-15000 per year): Includes costs related to the IRB requirements.
+    - Publication Costs (average $3000-4000 per year): Costs associated with helping disseminate research findings. 
+    - Consultant Services (average $0 per year): Costs associated with consultants who provide advice but do not make decisions for the direction of the research. 
+    - ADP/Computer Services (average $0 per year): Costs for research specific computer services- such as reserving computing time on supercomputers or getting specialized software to help run your statistics.
+    - Alterations and Renovations (average $0 per year): Not typically included but covers costs for any alteration or renovation required.
+    - Research Patient Care Costs (average $0 per year): Not typically included but covers costs for patient care expenses.
+    - Tuition (average $0 per year): Not typically included but covers costs for graduate students contributing to the project.
+    - Human Fetal Tissue from elective abortions (average $0 per year): Not typically included but covers costs for the use of human fetal tissue obtained from elective abortions.
+    - Other (average $0 per year): Any other allowable costs not accounted for in the previous sections.
 
-    Display the total dollar amounts in a table with the categories listed in rows and the total dollar amounts listed in a single column.
+    Display the total dollar amounts for all years combined in a table with the categories listed in rows and the total dollar amounts listed in a single column. Do not display the total dollar amounts as a range.
+    Include a total for all years and categories combined.
+
     Your work is complete after this table is created.
     '''
 
@@ -873,7 +875,7 @@ async def initialize_agents():
     )
 
     study_complexity_writer_prompt = '''
-    You are an expert at writing budget and study complexity documents. 
+    You are an expert at writing study complexity documents related to generating a budget. 
     Write all of the provided study complexity and funding opportunity details to a text document titled 1_Funding_Opportunity_Overview.txt, overwriting the old document as needed. 
     Make formatting changes as needed to make the document more readable but do not change the overall content. 
     '''
@@ -889,8 +891,8 @@ async def initialize_agents():
     )
 
     personnel_effort_writer_prompt = '''
-    You are an expert writing documents. You may only use the information passed to you to write the entire provided context to a text document titled 2_Personnel_Effort.txt, 
-    overwriting the old document as needed. Do not make any changes. Do not include ```markdown in your response.
+    You are an expert writing personnel effort documents. You may only use the information passed to you to write the entire provided context to a text document titled 2_Personnel_Effort.txt, 
+    overwriting the old document as needed. You must include all of the information from the PersonnelEffort team member. Do not make any changes. Do not include ```markdown in your response.
     '''
 
     personnel_effort_writer_agent = await acreate_agent(
@@ -904,8 +906,8 @@ async def initialize_agents():
     )
 
     personnel_justification_writer_prompt = '''
-    You are an expert writing documents. You may only use the information passed to you to write the entire provided context to a text document titled 3_Personnel_Justification.txt, 
-    overwriting the old document as needed. Do not make any changes. Do not include ```markdown in your response.
+    You are an expert writing personnel justification documents. You may only use the information passed to you to write the entire provided context to a text document titled 3_Personnel_Justification.txt, 
+    overwriting the old document as needed. You must include all of the information from the PersonnelJustifications team member. Do not make any changes. Do not include ```markdown in your response.
     '''
 
     personnel_justification_writer_agent = await acreate_agent(
@@ -919,8 +921,8 @@ async def initialize_agents():
     )
 
     nonpersonnel_costs_writer_prompt = '''
-    You are an expert writing documents. You may only use the information passed to you to write the entire provided context to a text document titled 4_Non-Personnel_Costs.txt, 
-    overwriting the old document as needed. Do not make any changes. Do not include ```markdown in your response.
+    You are an expert writing non-personnel costs documents. You may only use the information passed to you to write the entire provided context to a text document titled 4_Non-Personnel_Costs.txt, 
+    overwriting the old document as needed. You must include all of the information from the NonPersonnelCosts team member. Do not make any changes. Do not include ```markdown in your response.
     '''
 
     nonpersonnel_costs_writer_agent = await acreate_agent(
@@ -934,8 +936,8 @@ async def initialize_agents():
     )
 
     nonpersonnel_justification_writer_prompt = '''
-    You are an expert writing documents. You may only use the information passed to you to write the entire provided context to a text document titled 5_Non-Personnel_Justification.txt, 
-    overwriting the old document as needed. Do not make any changes. Do not include ```markdown in your response.
+    You are an expert writing non-personnel costs justification documents. You may only use the information passed to you to write the entire provided context to a text document titled 5_Non-Personnel_Justification.txt, 
+    overwriting the old document as needed. You must include all of the information from the NonPersonnelJustifications team member. Do not make any changes. Do not include ```markdown in your response.
     '''
 
     nonpersonnel_justification_writer_agent = await acreate_agent(
@@ -976,6 +978,77 @@ async def initialize_agents():
         agent_node, agent=dopifier_writer_agent, name="Dopifier"
     )
 
+    @tool
+    def calculate_person_dollars(percentage: float, salary: float, benefits: float) -> float:
+        """Calculates person dolloars by multiplying a given percentage by the salary and returns the result."""
+        if percentage > 1:
+            percentage = percentage/100
+        
+        if benefits > 1:
+            benefits = benefits/100
+        
+        return percentage*salary+percentage*benefits
+
+    personnel_costs_prompt = '''
+    You are an expert at creating NIH personnel costs. You use the effort allocation estimates (not the person months) produced by your PersonnelEffort team member
+    to create a comprehensive costs table for each role on the project. Each role has an assumed salary and benefits % that you must use to calculate the total personnel costs. 
+    The total benefits % is 15%, and the total salary for each role is as follows:
+
+    Key Personnel:
+    - DCC Principal Investigator (Required): $150,000
+
+    Other Personnel:
+    - DCC Co-Principal Investigator: $125,000
+    - Clinical Data Manager: $80,000
+    - Statistician(s) (1 Required): $80,000
+    - Clinical Project Manager: $80,000
+    - Business Project Manager: $80,000
+    - Software Engineering: $90,000
+    - IT Project Manager: $80,000
+    - IT Operations: $80,000
+    - Ops Leader: $100,000
+    - Administrative Program Coordinator: $60,000
+    - Regulatory and Quality Assurance Manager: $80,000
+    - Finance: $80,000
+    - Medical Monitor: $80,000
+    - Business Intelligence: $80,000
+    - Biometrics Management: $100,000
+    - Clinical Project Manager Management: $100,000
+    - IT Management: $100,000
+
+    Use the calculate_person_dollars tool to calculate total personnel costs.
+    Display both the effort allocation % and calculated costs in a comprehensive table with all the roles listed in rows and all the study years listed in columns. You must include all the same rows as the PersonnelEffort table.
+    Include subtotals for each year and for each role.
+
+    You may explain the calculation in simple terms but do not include the equation in your response.
+
+    Your work is complete after a table is created.
+    '''
+
+    personnel_costs_agent = await acreate_agent(
+        budget_llm,
+        [calculate_person_dollars],
+        personnel_costs_prompt,
+    )
+    personnel_costs_node = functools.partial(
+        agent_node, agent=personnel_costs_agent, name="PersonnelCosts"
+    )
+
+    personnel_costs_writer_prompt = '''
+    You are an expert writing personnel costs documents. You may only use the information passed to you to write the entire provided context to a text document titled 3_Personnel_Costs.txt, 
+    overwriting the old document as needed. Do not make any changes.
+    '''
+
+    personnel_costs_writer_agent = await acreate_agent(
+        writer_llm,
+        [write_document, edit_document, read_document],
+        personnel_costs_writer_prompt,
+    )
+    #context_aware_nonpersonnel_effort_writer_agent = prelude | nonpersonnel_costs_writer_agent
+    personnel_costs_writing_node = functools.partial(
+        agent_node, agent=personnel_costs_writer_agent, name="PersonnelCostsWriter"
+    )
+
     # Configure Graph
 
     research_graph = StateGraph(ResearchTeamState)
@@ -1000,6 +1073,8 @@ async def initialize_agents():
     research_graph.add_node("FinalBudgetWriter", final_budget_writer_node)
     research_graph.add_node("Dopifier", dopifier_writer_node)
     research_graph.add_node("GeneralRequests", general_requests_node)
+    research_graph.add_node("PersonnelCosts", personnel_costs_node)
+    research_graph.add_node("PersonnelCostsWriter", personnel_costs_writing_node)
 
     research_graph.add_edge("OpportunitiesInformationRetriever", "supervisor")
     research_graph.add_edge("ProjectsInformationRetriever", "supervisor")
@@ -1025,6 +1100,9 @@ async def initialize_agents():
     research_graph.add_edge("Dopifier", END)
     research_graph.add_edge("BudgetGenerator", "supervisor")
     research_graph.add_edge("GeneralRequests", "supervisor")
+    research_graph.add_edge("PersonnelEffort", "PersonnelCosts")
+    research_graph.add_edge("PersonnelCosts", "PersonnelCostsWriter")
+    research_graph.add_edge("PersonnelCostsWriter", "FinalBudgetWriter")
 
     research_graph.add_conditional_edges(
         "supervisor",
