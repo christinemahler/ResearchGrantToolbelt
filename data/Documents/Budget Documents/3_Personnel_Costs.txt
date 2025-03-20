@@ -1,19 +1,23 @@
-### Personnel Budget Table for Five Years
+### Personnel Costs Calculation
 
-| **Role**                       | **Year 1 Cost** | **Year 2 Cost** | **Year 3 Cost** | **Year 4 Cost** | **Year 5 Cost** | **Subtotal Cost** |
-|--------------------------------|----------------|----------------|----------------|----------------|----------------|-------------------|
-| DCC Principal Investigator     | $22,500        | $22,500        | $22,500        | $22,500        | $22,500        | $112,500          |
-| Clinical Data Manager          | $48,000        | $48,000        | $48,000        | $48,000        | $48,000        | $240,000          |
-| Statistician                   | $40,000        | $40,000        | $40,000        | $40,000        | $40,000        | $200,000          |
-| Clinical Project Manager       | $60,000        | $60,000        | $60,000        | $60,000        | $60,000        | $300,000          |
-| Business Project Manager       | $20,000        | $12,000        | $8,000         | $0             | $0             | $40,000           |
-| Ops Leader                     | $10,000        | $10,000        | $10,000        | $10,000        | $10,000        | $50,000           |
-| Administrative Coordinator      | $6,000         | $6,000         | $6,000         | $6,000         | $6,000         | $30,000           |
-| Finance                         | $4,000         | $4,000         | $4,000         | $4,000         | $4,000         | $20,000           |
-| Biometrics Management          | $5,000         | $5,000         | $5,000         | $5,000         | $5,000         | $25,000           |
-| Clinical Project Mgmt.         | $5,000         | $5,000         | $5,000         | $5,000         | $5,000         | $25,000           |
-| **Total Costs per Year**       | $220,500       | $212,500       | $208,500       | $200,500       | $200,500       | **$1,042,500**    |
+Below is the calculation of the total personnel costs for each role over five years, incorporating the assumed salary, employee benefit rate at 15%, and the effort percentages provided.
 
-> **Note:** The individual costs were calculated by applying the respective effort allocation percentage to the annual salary (including 15% benefits) for each listed role per year.
+**Personnel Costs Table**
 
-This table will serve as the comprehensive personnel costs allocation for the budgeting process of the project under funding opportunity PAR-25-283.
+| Roles                            | Year 1            | Year 2           | Year 3           | Year 4           | Year 5           |
+|----------------------------------|-------------------|----------------- |------------------|------------------|------------------|
+| **DCC Principal Investigator**   | $25,875           | $25,875          | $25,875          | $25,875          | $25,875          |
+| **Clinical Data Manager**        | $69,120           | $69,120          | $69,120          | $69,120          | $69,120          |
+| **Statistician**                 | $57,600           | $57,600          | $57,600          | $57,600          | $57,600          |
+| **Clinical Project Manager**     | $86,400           | $86,400          | $86,400          | $86,400          | $86,400          |
+| **Business Project Manager**     | $17,280           | $3,456           | $0               | $0               | $0               |
+| **IT Operations**                | $0                | $0               | $0               | $0               | $0               |
+| **Ops Leader**                   | $13,800           | $13,800          | $13,800          | $13,800          | $13,800          |
+| **Administrative Program Coord.**| $8,280            | $8,280           | $8,280           | $8,280           | $8,280           |
+| **Finance**                      | $5,520            | $5,520           | $5,520           | $5,520           | $5,520          |
+| **Biometrics Management**        | $6,900            | $6,900           | $6,900           | $6,900           | $6,900           |
+| **Clinical Project Mgmt Mgmt.**  | $6,900            | $6,900           | $6,900           | $6,900           | $6,900           |
+
+**Note**: Each value above includes the salary cost augmented by 15% for benefits. The calculations are based on the provided effort percentages converted from the effort allocations.
+
+This table summarizes the financial requirement for each personnel role throughout the project duration, aiding in a detailed budgetary planning for the NIH grant submission.

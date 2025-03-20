@@ -21,8 +21,6 @@ from typing import (
     Any, Callable, Dict, List, Optional, Tuple, TypedDict, Union, Annotated
 )
 import time
-import asyncio
-import re
 
 # 🔹 Third-Party Libraries
 import requests
@@ -32,9 +30,7 @@ import pprint  # Useful for structured printing
 from IPython.display import Image, display
 from docx import Document
 import pypandoc
-from openai import OpenAI
-
-client = OpenAI()
+import streamlit as st
 
 # 🔹 LangChain Core Components
 from langchain.schema.output_parser import StrOutputParser
@@ -71,14 +67,54 @@ from langgraph.graph import END, StateGraph
 # 🔹 LangChain Vector Stores
 from langchain_community.vectorstores import Qdrant
 
-# 🔹 LangChain Caching
-from langchain_core.globals import set_llm_cache
-from langchain_core.caches import InMemoryCache
-from langchain.embeddings import CacheBackedEmbeddings
-from langchain.storage import LocalFileStore
-
 # Load environment variables
 load_dotenv()
+
+# Move page config to the very top, before any other Streamlit commands
+st.set_page_config(
+    page_title="Research Grant Toolbelt AI Assistant",
+    page_icon="🔬",
+    layout="wide"
+)
+
+# Add custom CSS right after page config
+st.markdown("""
+<style>
+    .stApp {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .chat-message {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .user-message {
+        background-color: #e6f3ff;
+        border-left: 5px solid #2196F3;
+    }
+    .assistant-message {
+        background-color: #f8f9fa;
+        border-left: 5px solid #4CAF50;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Initialize session state
+if 'messages' not in st.session_state:
+    st.session_state.messages = []
+if 'chain' not in st.session_state:
+    st.session_state.chain = None
+if 'initialized' not in st.session_state:
+    st.session_state.initialized = False
+if 'processing' not in st.session_state:
+    st.session_state.processing = False
+if 'form_counter' not in st.session_state:
+    st.session_state.form_counter = 0
+if 'has_pdf' not in st.session_state:
+    st.session_state.has_pdf = False
 
 # Load Embeddings
 
@@ -88,15 +124,9 @@ embedding_model = OpenAIEmbeddings(model="text-embedding-3-small")
 
 qdrant_url = "https://e788c0ea-f5df-4d96-85ac-350da677aadf.us-west-2-0.aws.cloud.qdrant.io"
 
-# Adding cache!
-store = LocalFileStore("./cache/")
-cached_embedder = CacheBackedEmbeddings.from_bytes_store(
-    embedding_model, store, namespace=embedding_model.model
-)
-
 # Opportunities
 opportunities_qdrant = QdrantVectorStore.from_existing_collection(
-    embedding=cached_embedder,
+    embedding=embedding_model,
     collection_name="opportunities",
     url=qdrant_url,
     api_key=os.environ["QDRANT_API_KEY"],
@@ -104,7 +134,7 @@ opportunities_qdrant = QdrantVectorStore.from_existing_collection(
 
 # Projects
 projects_qdrant = QdrantVectorStore.from_existing_collection(
-    embedding=cached_embedder,
+    embedding=embedding_model,
     collection_name="projects",
     url=qdrant_url,
     api_key=os.environ["QDRANT_API_KEY"],
@@ -112,7 +142,7 @@ projects_qdrant = QdrantVectorStore.from_existing_collection(
 
 # Opportunities Summary
 opportunities_summary_qdrant = QdrantVectorStore.from_existing_collection(
-    embedding=cached_embedder,
+    embedding=embedding_model,
     collection_name="opportunities_summary",
     url=qdrant_url,
     api_key=os.environ["QDRANT_API_KEY"],
@@ -219,8 +249,6 @@ projects_summary_prompt = ChatPromptTemplate.from_template(projects_summary_prom
 
 # Create Model Instances
 
-set_llm_cache(InMemoryCache())
-
 small_llm = ChatOpenAI(model="gpt-4o-mini")
 medium_llm = ChatOpenAI(model="gpt-4o")
 large_llm = ChatOpenAI(model="gpt-4-turbo")
@@ -231,7 +259,7 @@ writer_llm = ChatOpenAI(model="gpt-4-turbo")
 
 # Create Summarizers
 
-summarizer_chain = load_summarize_chain(large_llm, chain_type="map_reduce")
+summarizer_chain = load_summarize_chain(medium_llm, chain_type="map_reduce")
 
 opportunities_summary_chain = (
     {"context": itemgetter("question") | opportunities_summary_retriever | summarizer_chain}  # Summarize retrieved docs
@@ -334,14 +362,6 @@ def calculate_person_months(percentage: float) -> float:
 budget_directory = 'data/Documents/Budget Documents'
 
 os.makedirs(budget_directory, exist_ok=True)
-
-'''
-def create_random_subdirectory():
-    random_id = str(uuid.uuid4())[:8]  # Use first 8 characters of a UUID
-    subdirectory_path = os.path.join('data/Documents', random_id)
-    os.makedirs(subdirectory_path, exist_ok=True)
-    return subdirectory_path
-'''
 
 WORKING_DIRECTORY = Path(budget_directory)
 
@@ -455,7 +475,7 @@ def convert_txt_to_docx(directory: str, txt_file: str = "FinalBudgetProposal.txt
     """Converts a .txt file to a .docx file."""
     output_path = os.path.join(directory, docx_file)
     input_path = os.path.join(directory, txt_file)
-
+    
     # 🔹 Read text file
     with open(input_path, "r", encoding="utf-8") as file:
         text = file.read()
@@ -470,12 +490,12 @@ def convert_txt_to_docx(directory: str, txt_file: str = "FinalBudgetProposal.txt
 @tool
 def remove_text_files(directory: str):
     """Removes all .txt files from the specified directory."""
-
+    
     # 🔹 Check if directory exists
     if not os.path.isdir(directory):
         print(f"❌ Error: Directory '{directory}' does not exist.")
         return
-
+    
     removed_files = 0
 
     # 🔹 Iterate through files in the directory
@@ -1002,10 +1022,10 @@ async def initialize_agents():
         """Calculates person dolloars by multiplying a given percentage by the salary and returns the result."""
         if percentage > 1:
             percentage = percentage/100
-
+        
         if benefits > 1:
             benefits = benefits/100
-
+        
         return percentage*salary+percentage*benefits
 
     personnel_costs_prompt = '''
@@ -1141,221 +1161,188 @@ os.makedirs(budget_directory, exist_ok=True)
 WORKING_DIRECTORY = Path(budget_directory)
 
 def clean_budget_directory():
-    """Removes all files from the budget documents directory."""
+    """Removes all files from the budget documents directory except PDF."""
     if not os.path.exists(budget_directory):
         os.makedirs(budget_directory)
+    pdf_path = os.path.join(budget_directory, "FinalBudgetProposal.pdf")
+    has_pdf = os.path.isfile(pdf_path)
+    
     for filename in os.listdir(budget_directory):
         file_path = os.path.join(budget_directory, filename)
+        # Skip the PDF file if it exists
+        if filename == "FinalBudgetProposal.pdf":
+            continue
         if os.path.isfile(file_path):
             os.remove(file_path)
-
-def split_into_chunks(text: str, chunk_size: int = 100) -> List[Tuple[str, bool]]:
-    """
-    Split text into chunks while preserving formatting.
-    Returns list of (chunk, is_formatting) tuples.
-    """
-    # Regex pattern for markdown/formatting elements
-    format_pattern = r'(```[\s\S]*?```|`.*?`|\*\*.*?\*\*|\*.*?\*|__.*?__|_.*?_|#.*?\n|\[.*?\]|\|.*?\|)'
-    
-    chunks = []
-    current_pos = 0
-    
-    for match in re.finditer(format_pattern, text):
-        # Add text before the formatting
-        pre_text = text[current_pos:match.start()]
-        if pre_text:
-            chunks.extend((chunk, False) for chunk in [pre_text[i:i+chunk_size] 
-                         for i in range(0, len(pre_text), chunk_size)])
-            
-        # Add the formatting element as a single chunk
-        chunks.append((match.group(), True))
-        current_pos = match.end()
-    
-    # Add remaining text
-    remaining = text[current_pos:]
-    if remaining:
-        chunks.extend((chunk, False) for chunk in [remaining[i:i+chunk_size] 
-                     for i in range(0, len(remaining), chunk_size)])
-    
-    return chunks
 
 from engineio.payload import Payload
 
 # Increase the maximum number of packets to decode
 Payload.max_decode_packets = 150  # Adjust this number as needed
 
-def tokenize_markdown(md_text: str):
-    """
-    Tokenizes a Markdown string while preserving all original formatting.
-    
-    This function splits the input on any sequence of whitespace characters
-    but *keeps* the whitespace as separate tokens. That means multiple spaces,
-    tabs, and newlines are all preserved. Markdown syntax (e.g. #, **, `, etc.)
-    is never stripped or altered.
-    
-    Args:
-        md_text (str): The raw Markdown string to tokenize.
-    
-    Returns:
-        List[str]: A list of tokens, including non-whitespace chunks and the
-                   exact whitespace chunks in between.
-    
-    Example:
-        >>> text = \"\"\"# Heading
-        ... 
-        ... **Bold**  and `inline code`    with spaces\"\"\"
-        >>> tokens = tokenize_markdown(text)
-        >>> tokens
-        [
-          '#', ' ', 'Heading', '\\n', '\\n', 
-          '**Bold**', '  ', 'and', ' ', '`inline', ' ', 'code`', '    ', 'with', ' ', 'spaces'
-        ]
-    """
-    # Split on one or more whitespace characters, capturing the whitespace in separate tokens.
-    # re.split with a capturing group (parentheses) retains what you split on (i.e., the whitespace).
-    tokens = re.split(r'(\s+)', md_text)
-
-    # Remove empty strings, which can occur if text ends or begins with a split
-    tokens = list(filter(None, tokens))
-    return tokens
-
-@cl.on_chat_start
-async def start():
+async def initialize_session():
     """Initialize the chat session"""
-    try:
-        # Get the base chain
-        chain = await initialize_agents()
+    if not st.session_state.initialized:
+        try:
+            # Get the base chain
+            chain = await initialize_agents()
+            
+            # Store in session state
+            st.session_state.chain = chain
+            st.session_state.initialized = True
+            
+            # Display welcome message
+            st.markdown("""
+            # Welcome to the Research Grant Toolbelt AI Assistant! 🔬
+            
+            I can help you with:
+            - Finding NIH funding opportunities
+            - Creating detailed budgets
+            - Researching existing projects
+            - Analyzing study complexity
+            - And more!
+            
+            Try one of these example queries:
+            - Provide a list of funding opportunities for my research project
+            - Create a budget for funding opportunity PAR-25-283
+            - Provide a list of University of Utah projects
+            """)
+            
+        except Exception as e:
+            st.error(f"Error initializing the chat: {str(e)}")
+            raise
 
-        # Store in user session
-        cl.user_session.set("chain", chain)
-
-        intro_content = '''Welcome to the Research Grant Toolbelt AI Assistant!
-        I can help you with:
-        - Finding NIH funding opportunities
-        - Creating detailed budgets
-        - Researching existing projects
-        - Analyzing study complexity
-        - And more!
-        
-        Try one of these example queries:
-        - Provide a list of funding opportunities for my research project
-        - Create a budget for funding opportunity PAR-25-283
-        - Provide a list of University of Utah projects
-        '''
-
-        intro_msg = cl.Message(content="")
-        tokens = tokenize_markdown(intro_content)
-        for token in tokens:
-            await intro_msg.stream_token(token)
-            await asyncio.sleep(0.05)
-
-        # Send welcome message
-        #await intro_msg.send()
-
-    except Exception as e:
-        error_msg = f"Error initializing the chat: {str(e)}"
-        intro_msg.content = error_msg
-        await intro_msg.send()
-        raise
-
-@cl.on_message
-async def handle_message(message: cl.Message):
+async def process_message(user_input: str):
     """Handle incoming messages"""
-    # Get chain from session
-    chain = cl.user_session.get("chain")
-    print(f"Retrieved chain type: {type(chain) if chain else 'None'}")
-
-    if not chain:
-        await cl.Message(content="Error: Chain not found. Please restart the chat.").send()
-        return
-
-    # Clean up old files
-    clean_budget_directory()
-
-    # Send initial processing message
-    msg = await cl.Message(content="Processing your request... This may take a few minutes.").send()
-
     try:
-        # Stream the response
-        current_content = ""
-        msg.content = current_content
-        await msg.update()
-        counter = 0
-        async for s in chain.astream(
-            {"messages": [message.content], "team_members": ", ".join(chain.nodes)}
-        ):
-            if "__end__" not in s:
-                for key in s:
-                    if key == 'supervisor' and s[key]['next'] != 'FINISH':
-                        agent = s[key]['next']
-                        handoff_content = f"Handing your request off to the {agent} agent"
-                        tokens = tokenize_markdown(handoff_content)
-                        msg.content = ""
-                        await msg.update()
-                        for token in tokens:
-                            await msg.stream_token(token)
-                            await asyncio.sleep(0.05)
-                        for _ in range(2):  # Adjust the number of cycles
-                            for dots in [".", "..", "...", ""]:
-                                await asyncio.sleep(0.5)  # Adjust speed
-                                msg.content = handoff_content + dots
-                                await msg.update()
-                    elif key != 'supervisor':
-                        # Animate dots while waiting
-                        '''for _ in range(2):  # Adjust the number of cycles
-                            for dots in [".", "..", "...", ""]:
-                                await asyncio.sleep(0.5)  # Adjust speed
-                                content = f"Processing your request{dots}"
-                                msg.content = content
-                                await msg.update()'''
-                        if 'data/Documents/Budget Documents' not in s[key]['messages'][-1].content \
-                            and '1_Funding_Opportunity_Overview.txt' not in s[key]['messages'][-1].content \
-                                and '2_Personnel_Effort.txt' not in s[key]['messages'][-1].content \
-                                    and '3_Personnel_Costs.txt' not in s[key]['messages'][-1].content \
-                                        and '4_Personnel_Justification.txt' not in s[key]['messages'][-1].content \
-                                            and '5_Non-Personnel_Costs.txt' not in s[key]['messages'][-1].content \
-                                                and '6_Non-Personnel_Justification.txt' not in s[key]['messages'][-1].content \
-                                                    and 'Final_Budget_Proposal.txt' not in s[key]['messages'][-1].content \
-                                                        and 'Final_Budget_Proposal.md' not in s[key]['messages'][-1].content:
-                            tokens = tokenize_markdown(s[key]['messages'][-1].content)
-                            msg.content = current_content + '\n'
-                            msg.update()
-                            if counter == 0:
-                                msg.content = ""
-                                await msg.update()
-                                counter += 1
-                            for token in tokens:
-                                await msg.stream_token(token)
-                                await asyncio.sleep(0.05)
-                            current_content = current_content + '\n' + s[key]['messages'][-1].content
-                            msg.content = current_content
-                            await msg.update()
+        st.session_state.processing = True
+        # Get chain from session
+        chain = st.session_state.chain
+        
+        if not chain:
+            st.error("Error: Chain not found. Please restart the chat.")
+            return
+        
+        # Clean up old files
+        clean_budget_directory()
+        
+        # Show processing message
+        with st.spinner("Processing your request... This may take a few minutes."):
+            response = await chain.ainvoke({
+                "messages": [user_input],
+                "team_members": ", ".join(chain.nodes)
+            })
+            
+            if response and 'messages' in response and response['messages']:
+                last_message = response['messages'][-1]
+                if hasattr(last_message, 'content'):
+                    return last_message.content
+                else:
+                    return last_message.get('content') if isinstance(last_message, dict) else str(last_message)
+            return "No response generated."
+            
     except Exception as e:
-        #await msg.update(content=f"Error processing request: {str(e)}")
-        await cl.Message(content=f"Error processing request: {str(e)}").send()
+        st.error(f"Error processing request: {str(e)}")
+        return None
+    finally:
+        st.session_state.processing = False
 
-    if current_content == '':
-        msg.content = current_content
-        await msg.update()
-        response = client.chat.completions.create(model="gpt-4o-mini",
-        messages=[{"role": "user", "content": message.content}],
-        stream=True)
-        for chunk in response:
-            if chunk.choices[0].delta.content:
-                await msg.stream_token(chunk.choices[0].delta.content)
-
-        await msg.update()
-
-    # Check for PDF
+def check_for_pdf():
+    """Check for and display PDF if available"""
     file_path = os.path.join(budget_directory, "FinalBudgetProposal.pdf")
     if os.path.isfile(file_path):
-        await cl.Message(
-            content="Here is your budget proposal:",
-            elements=[
-                cl.File(
-                    name="FinalBudgetProposal.pdf",
-                    path=file_path,
-                    display_name="Download Budget Proposal"
+        st.session_state.has_pdf = True
+        st.markdown("---")
+        st.markdown("### Generated Documents")
+        with open(file_path, "rb") as pdf_file:
+            pdf_bytes = pdf_file.read()
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                st.markdown("Your budget proposal PDF is ready!")
+            with col2:
+                st.download_button(
+                    label="📥 Download PDF",
+                    data=pdf_bytes,
+                    file_name="FinalBudgetProposal.pdf",
+                    mime="application/pdf",
+                    use_container_width=True,
                 )
-            ]
-        ).send()
+
+def increment_form_counter():
+    st.session_state.form_counter += 1
+
+# Main app function
+async def main():
+    # Initialize session
+    await initialize_session()
+
+    # Chat interface
+    st.markdown("---")
+    st.markdown("### Chat Interface")
+    
+    # Check for PDF at the top of the interface if it exists
+    if st.session_state.has_pdf:
+        check_for_pdf()
+    
+    # Display message history
+    for message in st.session_state.messages:
+        message_class = "user-message" if message["role"] == "user" else "assistant-message"
+        st.markdown(f"""
+        <div class="chat-message {message_class}">
+            <div>{message["content"]}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Create columns for the input area
+    input_col, button_col = st.columns([4, 1])
+    
+    # Create a form with a dynamic key
+    with input_col:
+        with st.form(key=f"chat_form_{st.session_state.form_counter}", clear_on_submit=True):
+            # User input
+            user_input = st.text_area(
+                "Enter your message:", 
+                key=f"user_input_{st.session_state.form_counter}", 
+                height=100
+            )
+            
+            # Submit button
+            submitted = st.form_submit_button("Send")
+    
+    # Place download button outside the form in the second column if PDF exists
+    with button_col:
+        file_path = os.path.join(budget_directory, "FinalBudgetProposal.pdf")
+        if os.path.isfile(file_path):
+            with open(file_path, "rb") as pdf_file:
+                pdf_bytes = pdf_file.read()
+                st.download_button(
+                    label="📥 Download PDF",
+                    data=pdf_bytes,
+                    file_name="FinalBudgetProposal.pdf",
+                    mime="application/pdf",
+                    use_container_width=True,
+                )
+    
+    if submitted and user_input:
+        # Add user message to history
+        st.session_state.messages.append({"role": "user", "content": user_input})
+        
+        # Process message and get response
+        response = await process_message(user_input)
+        
+        if response:
+            # Add assistant message to history
+            st.session_state.messages.append({"role": "assistant", "content": response})
+            
+            # Check for PDF
+            check_for_pdf()
+        
+        # Increment form counter to create a new form instance
+        increment_form_counter()
+        
+        # Rerun to update UI
+        st.rerun()
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())

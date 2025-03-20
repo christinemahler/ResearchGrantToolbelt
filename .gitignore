@@ -3,3 +3,6 @@
 .chainlit/
 venv/
 .venv/
+cache/
+__pycache__/
+.files/

@@ -1,15 +1,19 @@
+Funding Opportunity Overview
+----------------------------------
+
 **Opportunity ID:** PAR-25-283
 **Name:** Innovative Mental Health Services Research Not Involving Clinical Trials (R01 Clinical Trials Not Allowed)
-**Award Amount:** Not specified in the context
-**Award Project Period:** Not specified in the context
-**Link to Opportunity Announcement:** [https://grants.nih.gov/grants/guide/pa-files/PAR-25-283.html](https://grants.nih.gov/grants/guide/pa-files/PAR-25-283.html)
+**Award Amount:** (Information not provided in the context)
+**Award Project Period:** (Information not provided in the context)
+**Link to Opportunity Announcement:** [PAR-25-283 Announcement](https://grants.nih.gov/grants/guide/pa-files/PAR-25-283.html)
 
-**Project Complexity:**
-1) **Regulatory:** Low - The project does not mention high regulatory requirements, and it is not focused on areas with heightened regulatory scrutiny such as human subjects research involving sensitive populations.
-2) **Data Collection and Management:** Medium - The complexity could increase if there are multiple sites involved but is unspecified in the context provided.
-3) **Statistical Analysis and Manuscript Development:** Low - The lack of complexity in analysis is inferred as it does not mention non-standard statistical processes or advanced methodologies.
-4) **Information Technology:** Low - Assuming standard software and IT services are used without unique customization.
-5) **Operational:** Low - Standard project administration is expected, given the lack of mentioned complications in site onboarding or coordination.
-6) **Financial:** Low - Budget management appears straightforward without complexities indicated.
+### Project Complexity
+1. **Regulatory:** Low - The project likely involves standard research regulations without a focus on high-risk areas or sensitive populations, as it does not involve clinical trials.
+2. **Data Collection and Management:** Medium - Involves mental health service research which may require collecting moderate data elements, but likely not as extensive as in clinical trials.
+3. **Statistical Analysis and Manuscript Development:** Medium - Involves standard analysis techniques since it does not use clinical trials but still needs thorough analysis relevant to mental health.
+4. **Information Technology:** Low - Routine IT support likely required, with no indication of complex software or systems involved.
+5. **Operational:** Medium - Moderate project administration efforts will be required, particularly in coordinating research activities across various settings.
+6. **Financial:** Low - Budget management is likely straightforward since it does not involve complex grant arrangements.
 
-**Required Budget Form:** Since this opportunity is not a research grant (it is explicitly not involving clinical trials), the detailed form (R&R Budget Form) is required.
+### Required Budget Form
+Since the opportunity is not a research grant or cooperative agreement, the required budget form is the **detailed form (R&R Budget Form)**.

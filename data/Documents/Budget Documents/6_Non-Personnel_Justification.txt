@@ -1,0 +1,65 @@
+### NIH Non-Personnel Budget Justification for PAR-25-283
+
+The following is a justification for each non-personnel budget category for the project funded under PAR-25-283, "Innovative Mental Health Services Research Not Involving Clinical Trials". The detailed narrative explains the necessity and estimation of costs associated with each category over the planned 5-year project period.
+
+#### 1. Equipment
+- **Total Cost:** $0
+- **Justification:** No additional equipment purchase is necessary for this project, as existing institutional resources are sufficient to support all research activities.
+
+#### 2. Travel 
+- **Total Cost:** $85,000
+- **Justification:** Funds will cover the costs for attending key research conferences and meetings essential for staying updated with the latest research and best practices in mental health services. This includes travel for the principal investigator and key project staff to four conferences per year, estimated at approximately $4,250 per conference.
+
+#### 3. Trainee Costs
+- **Total Cost:** $0
+- **Justification:** No trainee costs are required since the project does not involve any training components.
+
+#### 4. Materials and Supplies
+- **Total Cost:** $10,000
+- **Justification:** This budget will cover necessary supplies such as software licenses, office supplies, and other consumables needed for daily operations of the research. These materials are critical for data collection, storage, and general project management.
+
+#### 5. Site Monitoring
+- **Total Cost:** $22,500
+- **Justification:** Ensuring quality and integrity of the research sites, funds are allocated to conduct annual site visits and reviews over the project duration. This ensures compliance with study protocols and effective data collection procedures.
+
+#### 6. Data and Safety Monitoring Board
+- **Total Cost:** $27,500
+- **Justification:** Although the study does not involve clinical trials, the establishment of a Data and Safety Monitoring Board (DSMB) is critical to oversee the data management and ensure participant safety in line with ethical research practices. This budget covers meetings and compensation for board members.
+
+#### 7. Single/Multiple IRB 
+- **Total Cost:** $62,500
+- **Justification:** Funds are allocated for the ethical review and oversight provided by an Institutional Review Board (IRB), facilitating multiple site approvals and continuous monitoring throughout the project lifecycle.
+
+#### 8. Publication Costs
+- **Total Cost:** $17,500
+- **Justification:** The budget includes costs related to the publication of findings in peer-reviewed journals, ensuring wide dissemination of the research results which is key for advancing public health strategies in mental health services.
+
+#### 9. Consultant Services
+- **Total Cost:** $0
+- **Justification:** No consultant services are required as all necessary expertise is available within the project team.
+
+#### 10. ADP/Computer Services
+- **Total Cost:** $0
+- **Justification:** There are no additional costs for automated data processing or computer services as existing institutional IT resources are adequate.
+
+#### 11. Alterations and Renovations
+- **Total Cost:** $0
+- **Justification:** No alterations or renovations are necessary for project execution.
+
+#### 12. Research Patient Care Costs
+- **Total Cost:** $0
+- **Justification:** This project does not involve direct patient care costs as it is focused on services research without clinical trials.
+
+#### 13. Tuition
+- **Total Cost:** $0
+- **Justification:** No tuition costs are included as there are no educational components requiring such expenses in this project.
+
+#### 14. Human Fetal Tissue from elective abortions
+- **Total Cost:** $0
+- **Justification:** This category is not applicable to the nature of this research project.
+
+#### 15. Other
+- **Total Cost:** $0
+- **Justification:** All necessary budgetary considerations have been covered in the specified categories with no additional unspecified costs anticipated.
+
+The budget plan ensures comprehensive financial coverage for all essential aspects of the project, enhancing the project’s success potential in advancing mental health services research.

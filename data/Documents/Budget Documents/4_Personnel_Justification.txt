@@ -1,0 +1,23 @@
+### NIH Personnel Budget Justification for PAR-25-283
+
+The following justifications correspond with the personnel effort and responsibilities outlined for the project funded under PAR-25-283, "Innovative Mental Health Services Research Not Involving Clinical Trials". These roles are critical to the project’s success over its planned 5-year duration.
+
+1. **DCC Principal Investigator**
+   - **Effort:** 9 person-months total over 5 years (1.8 months per year)
+   - **Justification:** The DCC Principal Investigator will oversee all project management activities, ensure adherence to NIH guidelines, and provide oversight on all research outcomes and deliverables throughout the project duration. Their leadership is crucial for maintaining the integrity and direction of the research.
+
+2. **Clinical Data Manager**
+   - **Effort:** 36 person-months total over 5 years (7.2 months per year)
+   - **Justification:** The Clinical Data Manager will handle comprehensive data management tasks including data collection, quality checks, and database management. This role is central to the project’s ability to generate reliable data for analysis and ensure that the outcomes of the research are based on accurate and high-integrity data systems.
+
+3. **Statistician**
+   - **Effort:** 30 person-months total over 5 years (6 months per year)
+   - **Justification:** The Statistician will design and execute statistical analyses and ensure that the research data are interpreted correctly. This role is essential for the robust analysis of data which will contribute to the validity of the research findings.
+
+4. **Clinical Project Manager**
+   - **Effort:** 45 person-months total over 5 years (9 months per year)
+   - **Justification:** The Clinical Project Manager will be responsible for the coordination of all clinical research activities, compliance with ethical standards, and liaison with clinical sites. Their work is crucial for the smooth execution of the project’s operations and adherence to the timeline.
+
+5. **Business Project Manager** (Year 1 only)
+   - **Effort:** 3.6 person-months total over the first year
+   - **Justification:** The Business Project Manager will oversee the initial setup of project operations, including establishing the project’s framework, coordinating initial team efforts, and ensuring a standardized approach across all operational fronts. This role is vital in the early phase for setting up the foundations of the projec...

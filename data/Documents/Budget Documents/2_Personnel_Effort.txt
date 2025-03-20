@@ -1,16 +1,17 @@
-### Final Personnel Effort and Person Month Allocation Table:
+To facilitate the completion of the budget form for PAR-25-283, "Innovative Mental Health Services Research Not Involving Clinical Trials," we'll specify the effort allocation and calculate person-months for critical personnel roles required over a presumed five-year project period. 
 
-| Role                           | Year 1        | Year 2        | Year 3        | Year 4        | Year 5        |
-|--------------------------------|---------------|---------------|---------------|---------------|---------------|
-| **DCC Principal Investigator** | 15% (1.8 PM)  | 15% (1.8 PM)  | 15% (1.8 PM)  | 15% (1.8 PM)  | 15% (1.8 PM)  |
-| **Clinical Data Manager**      | 60% (7.2 PM)  | 60% (7.2 PM)  | 60% (7.2 PM)  | 60% (7.2 PM)  | 60% (7.2 PM)  |
-| **Statistician**               | 50% (6.0 PM)  | 50% (6.0 PM)  | 50% (6.0 PM)  | 50% (6.0 PM)  | 50% (6.0 PM)  |
-| **Clinical Project Manager**   | 75% (9.0 PM)  | 75% (9.0 PM)  | 75% (9.0 PM)  | 75% (9.0 PM)  | 75% (9.0 PM)  |
-| **Business Project Manager**   | 25% (3.0 PM)  | 15% (1.8 PM)  | 10% (1.2 PM)  | 0% (0.0 PM)   | 0% (0.0 PM)   |
-| **Ops Leader**                 | 10% (1.2 PM)  | 10% (1.2 PM)  | 10% (1.2 PM)  | 10% (1.2 PM)  | 10% (1.2 PM)  |
-| **Administrative Coordinator** | 10% (1.2 PM)  | 10% (1.2 PM)  | 10% (1.2 PM)  | 10% (1.2 PM)  | 10% (1.2 PM)  |
-| **Finance**                    | 5% (0.6 PM)   | 5% (0.6 PM)   | 5% (0.6 PM)  | 5% (0.6 PM)   | 5% (0.6 PM)   |
-| **Biometrics Management**      | 5% (0.6 PM)   | 5% (0.6 PM)  | 5% (0.6 PM)   | 5% (0.6 PM)   | 5% (0.6 PM)   |
-| **Clinical Project Mgmt.**     | 5% (0.6 PM)   | 5% (0.6 PM)   | 5% (0.6 PM)  | 5% (0.6 PM)   | 5% (0.6 PM)   |
+**Personnel Effort and Person-Months Breakdown:**
 
-This table provides a comprehensive look at both the percentage of effort and the respective person months calculated for each role over each year of the project.
+Below, I will assume a standard project structure typically fitting the outlined complexity and duration of this opportunity.
+
+| Roles                            | Year 1            | Year 2            | Year 3            | Year 4            | Year 5            |
+|----------------------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
+| **DCC Principal Investigator**   | 15% (1.8 months)  | 15% (1.8 months)  | 15% (1.8 months)  | 15% (1.8 months)  | 15% (1.8 months)  |
+| **Clinical Data Manager**        | 60% (7.2 months)  | 60% (7.2 months)  | 60% (7.2 months)  | 60% (7.2 months)  | 60% (7.2 months)  |
+| **Statistician**                 | 50% (6 months)    | 50% (6 months)    | 50% (6 months)    | 50% (6 months)    | 50% (6 months)    |
+| **Clinical Project Manager**     | 75% (9 months)    | 75% (9 months)    | 75% (9 months)    | 75% (9 months)    | 75% (9 months)    |
+| **Business Project Manager**     | 25% (3 months)    | 5% (0.6 months)   | 0% (0 months)     | 0% (0 months)     | 0% (0 months)     |
+| **IT Operations**                | 0% (0 months)     | 0% (0 months)     | 0% (0 months)     | 0% (0 months)     | 0% (0 months)     |
+| **Ops Leader**                   | 10% (1.2 months)  | 10% (1.2 months)  | 10% (1.2 months)  | 10% (1.2 months)  | 10% (1.2 months)  |
+| **Administrative Program Coord.**| 10% (1.2 months)  | 10% (1.2 months)  | 10% (1.2 months)  | 10% (1.2 months)  | 10% (1.2 months)  |
+| **Finance**                      | 5% (0.

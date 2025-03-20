@@ -1,0 +1,24 @@
+### Total Estimated Budget for PAR-25-283
+
+Given the details of the project, here is the estimated budget for necessary categories based on an assumed project duration of 5 years. Project-specific details like number of sites were not provided, so averages are used.
+
+| Category                      | Total Cost for 5 Years (USD) |
+|-------------------------------|------------------------------|
+| Equipment                     | 0                            |
+| Travel                        | 85,000                       |
+| Trainee Costs                 | 0                            |
+| Materials and Supplies        | 10,000                       |
+| Site Monitoring               | 22,500                       |
+| Data and Safety Monitoring Board | 27,500                     |
+| Single/Multiple IRB           | 62,500                       |
+| Publication Costs             | 17,500                       |
+| Consultant Services           | 0                            |
+| ADP/Computer Services         | 0                            |
+| Alterations and Renovations   | 0                            |
+| Research Patient Care Costs   | 0                            |
+| Tuition                       | 0                            |
+| Human Fetal Tissue from elective abortions | 0              |
+| Other                         | 0                            |
+| **Total**                     | **225,000**                  |
+
+This table represents the total forecasted non-personnel costs for the duration of the project under the provided NIH guidelines and project complexity. The values listed above average per year expenditures, multiplied by 5 to reflect the total budget across the entire project lifespan. This assumes the average end of given ranges and typical expenditures for a project of medium complexity in mental health research services as described.
