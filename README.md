@@ -77,7 +77,7 @@ The budget creation process will necessarily be a multi-step process beginning w
 
     For future phases and given the sensitivity of the effort allocation and budget data when fully integrated, it will be essential to use a self-hosted LLM for at least the budget generator process and for which we can likely stand up a private Hugging Face inference endpoint: https://huggingface.co/inference-endpoints/dedicated
 
-* **Embedding Model:** 
+* **Embedding Model:** text-embedding-3-small (still working on fine-tuning embeddings)
 
 * **Orchestration:** LangGraph
 
@@ -85,9 +85,9 @@ The budget creation process will necessarily be a multi-step process beginning w
 
     Additional work was started on an in-memory database that loads budget guidelines from NIH's website. These guidelines would be used to answer general questions about the budget generation process once again following a naive RAG pattern.
 
-* **Monitoring:** LangSmith (turned off for the time being)
+* **Monitoring:** LangSmith (turned off for the time being to prevent added costs)
 
-* **Evaluation:** 
+* **Evaluation:** Ragas (still working on generating appropriate training/test/validation datasets)
 
 * **User Interface:**  Chainlit
 
@@ -129,9 +129,10 @@ The budget creation process will necessarily be a multi-step process beginning w
 
 ### Task 4: Building a Quick End-to-End Pipeline
 
-- **Application:** 
-- **Application Development Notebook:**
-- **Data Load Notebook:** 
+- **Application:** https://huggingface.co/spaces/christinemahler/ResearchGrantToolbelt
+- **Application Development Notebook:** https://github.com/christinemahler/ResearchGrantToolbelt/blob/main/Research%20Grant%20Toolbelt.ipynb
+- **Data Load Notebook:** https://github.com/christinemahler/ResearchGrantToolbelt/blob/main/Initial%20Data%20Loading%20and%20Ragas%20Evaluation.ipynb
+- **Fine-Tuning and Evaluation Notebook:** https://github.com/christinemahler/ResearchGrantToolbelt/blob/main/Fine%20Tuning%20and%20Evaluation.ipynb
 
 ### Future Phases
 
